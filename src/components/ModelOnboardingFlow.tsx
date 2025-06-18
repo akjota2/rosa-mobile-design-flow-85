@@ -156,7 +156,7 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
       buttonText: "Entendi"
     },
 
-    // Popup 5 - Ganhos Reais (Chat simulado)
+    // Popup 5 - Ganhos Reais (redesigned chat)
     {
       icon: <Heart className="text-white" size={32} />,
       iconBg: "from-pink-500 to-red-500",
@@ -167,14 +167,20 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
             Exemplo de resultado de uma modelo <span className="font-semibold text-primary-600">@alessandravid_</span>
           </p>
           
-          {/* Chat simulado */}
-          <div className="bg-gray-900 rounded-2xl p-4 space-y-3 max-h-80 overflow-y-auto">
+          {/* Chat simulado mais compacto */}
+          <div className="bg-gray-900 rounded-2xl p-4 space-y-2">
             {/* Comprovante PDF */}
             <div className="flex items-start space-x-3">
-              <div className="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold">A</div>
+              <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                <img 
+                  src="/lovable-uploads/e01f3879-b106-442d-a751-04ca76e66e63.png" 
+                  alt="Avatar Alessandra" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="flex-1">
                 <div className="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg">
-                  <FileText className="text-red-400" size={20} />
+                  <FileText className="text-red-400" size={18} />
                   <div className="flex-1">
                     <p className="text-white text-sm font-medium">Comprovante_12-06-2025_19</p>
                     <p className="text-gray-400 text-xs">1 página • 38 KB • pdf</p>
@@ -186,7 +192,13 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
 
             {/* Mensagem 1 */}
             <div className="flex items-start space-x-3">
-              <div className="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold">A</div>
+              <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                <img 
+                  src="/lovable-uploads/e01f3879-b106-442d-a751-04ca76e66e63.png" 
+                  alt="Avatar Alessandra" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="flex-1">
                 <div className="bg-gray-800 p-3 rounded-lg">
                   <p className="text-white text-sm">Desculpa a demora meu anjo💖</p>
@@ -197,19 +209,19 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
 
             {/* Mensagem 2 */}
             <div className="flex items-start space-x-3">
-              <div className="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold">A</div>
+              <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                <img 
+                  src="/lovable-uploads/e01f3879-b106-442d-a751-04ca76e66e63.png" 
+                  alt="Avatar Alessandra" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="flex-1">
                 <div className="bg-gray-800 p-3 rounded-lg">
                   <p className="text-white text-sm">Cheguei em casa agora, vou já olhar todas suas fotos 👣 😘</p>
                 </div>
                 <p className="text-xs text-gray-400 mt-1">19:55</p>
               </div>
-            </div>
-
-            {/* Mensagem de ganho destacada */}
-            <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-4 rounded-xl text-center animate-pulse">
-              <p className="text-white font-bold text-lg">R$ 280 em 3 dias!</p>
-              <p className="text-green-100 text-sm">Apenas com conteúdo dos pés</p>
             </div>
           </div>
           
@@ -228,7 +240,7 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
       buttonText: "Quero também"
     },
 
-    // Popup Final - Oferta Irresistível
+    // Popup Final - Oferta Irresistível (com correção da comissão)
     {
       icon: <Shield className="text-white" size={32} />,
       iconBg: "from-green-500 to-emerald-500",
@@ -247,7 +259,7 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
             </div>
             <div className="flex items-center space-x-4">
               <Lock className="text-green-500 flex-shrink-0" size={24} />
-              <span className="text-gray-700 font-medium">0% de comissão</span>
+              <span className="text-gray-700 font-medium">100% de comissão</span>
             </div>
             <div className="flex items-center space-x-4">
               <Package className="text-green-500 flex-shrink-0" size={24} />
