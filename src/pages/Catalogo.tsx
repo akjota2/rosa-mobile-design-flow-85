@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -50,6 +51,10 @@ const Catalogo = () => {
     }
   };
 
+  const handleButtonClick = (profileName: string) => {
+    navigate(`/modelo/${profileName}`);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-pink-50">
       <Header />
@@ -90,7 +95,7 @@ const Catalogo = () => {
           {shuffledProfiles.map((profile, index) => (
             <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
               <div 
-                className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer mb-3"
                 style={{
                   backgroundImage: `url(${profile.image})`,
                   backgroundSize: 'cover',
@@ -100,40 +105,52 @@ const Catalogo = () => {
                 onClick={() => handleProfileClick(profile.name, profile.isVip)}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
-              </div>
-              
-              {/* VIP Badge */}
-              {profile.isVip && (
-                <div className="absolute top-3 right-3">
-                  <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
-                    <Crown size={12} />
-                    <span>VIP</span>
+                
+                {/* VIP Badge */}
+                {profile.isVip && (
+                  <div className="absolute top-3 right-3">
+                    <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
+                      <Crown size={12} />
+                      <span>VIP</span>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Lock Icon for blurred images */}
-              {profile.isBlurred && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
-                    <Lock className="text-white" size={28} />
+                {/* Lock Icon for blurred images */}
+                {profile.isBlurred && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
+                      <Lock className="text-white" size={28} />
+                    </div>
                   </div>
+                )}
+
+                {/* Profile Info */}
+                <div className="absolute bottom-3 left-3 text-white">
+                  <p className="font-bold text-lg drop-shadow-lg">{profile.name}, {profile.age}</p>
+                  <p className="text-sm flex items-center drop-shadow-lg">
+                    <Heart className="text-pink-400 mr-1" size={14} />
+                    Calça {profile.size}
+                  </p>
                 </div>
-              )}
 
-              {/* Profile Info */}
-              <div className="absolute bottom-3 left-3 text-white">
-                <p className="font-bold text-lg drop-shadow-lg">{profile.name}, {profile.age}</p>
-                <p className="text-sm flex items-center drop-shadow-lg">
-                  <Heart className="text-pink-400 mr-1" size={14} />
-                  Calça {profile.size}
-                </p>
+                {/* Heart Icon */}
+                <div className="absolute bottom-3 right-3">
+                  <Heart className="text-white" size={20} />
+                </div>
               </div>
 
-              {/* Heart Icon */}
-              <div className="absolute bottom-3 right-3">
-                <Heart className="text-white" size={20} />
-              </div>
+              {/* Button below each model */}
+              <Button
+                onClick={() => handleButtonClick(profile.name)}
+                className={`w-full ${
+                  profile.isVip 
+                    ? 'bg-gradient-to-r from-primary-500 to-pink-600 hover:from-primary-600 hover:to-pink-700' 
+                    : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700'
+                } text-white font-bold py-2 rounded-xl text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
+              >
+                {profile.isVip ? 'Acesso VIP' : 'Ver Packs'}
+              </Button>
             </div>
           ))}
         </div>
