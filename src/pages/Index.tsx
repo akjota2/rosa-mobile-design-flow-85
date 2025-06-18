@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Header } from '@/components/Header';
@@ -9,6 +8,7 @@ import { Features } from '@/components/Features';
 import { FAQ } from '@/components/FAQ';
 import { Footer } from '@/components/Footer';
 import { BackRedirectPopup } from '@/components/BackRedirectPopup';
+import { IPhoneMockup } from '@/components/IPhoneMockup';
 
 const Index = () => {
   const [userType, setUserType] = useState<'modelo' | 'admirador' | null>(null);
@@ -29,6 +29,7 @@ const Index = () => {
       <Header />
       <Hero />
       <UserTypeSelector userType={userType} setUserType={setUserType} />
+      <IPhoneMockup />
       <ProfileCards />
       <Features />
       <FAQ />
