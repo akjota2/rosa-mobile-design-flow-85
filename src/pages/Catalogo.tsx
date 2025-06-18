@@ -19,12 +19,14 @@ const Catalogo = () => {
   }, [timeLeft]);
 
   const profiles = [
-    { name: 'Lari', age: 22, size: 35, image: '/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png', isVip: true },
-    { name: 'Ju', age: 24, size: 37, image: '/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png', isVip: false },
-    { name: 'Ana', age: 26, size: 36, image: '/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png', isVip: true },
-    { name: 'Carol', age: 23, size: 38, image: '/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png', isVip: false },
-    { name: 'Mari', age: 25, size: 35, image: '/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png', isVip: true },
-    { name: 'Bianca', age: 21, size: 34, image: '/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png', isVip: false },
+    { name: 'Lari', age: 22, size: 35, image: '/lovable-uploads/5d3b86d2-dbd3-42d6-bad3-5fd9529b0a78.png', isVip: true, isBlurred: true },
+    { name: 'Ju', age: 24, size: 37, image: '/lovable-uploads/95f639f1-5e1b-460e-872e-133690efaad5.png', isVip: false, isBlurred: false },
+    { name: 'Ana', age: 26, size: 36, image: '/lovable-uploads/9d336adb-200c-496a-9ec4-4204bd1d2717.png', isVip: true, isBlurred: true },
+    { name: 'Carol', age: 23, size: 38, image: '/lovable-uploads/1882614c-ef48-4d46-85b3-7b76aab277c5.png', isVip: false, isBlurred: false },
+    { name: 'Mari', age: 25, size: 35, image: '/lovable-uploads/198e52e0-675a-47be-b5ea-b6b417e15d15.png', isVip: true, isBlurred: true },
+    { name: 'Bianca', age: 21, size: 34, image: '/lovable-uploads/241bddb4-54c1-4ba6-bfe3-e1b473c0e22b.png', isVip: false, isBlurred: false },
+    { name: 'Gabi', age: 23, size: 36, image: '/lovable-uploads/a17b990f-dd9d-413b-bb48-03cd407fc798.png', isVip: true, isBlurred: true },
+    { name: 'Luna', age: 22, size: 37, image: '/lovable-uploads/6b6b547c-060d-40cd-a714-2112922a50a4.png', isVip: false, isBlurred: false },
   ];
 
   return (
@@ -34,8 +36,8 @@ const Catalogo = () => {
       {/* Timer */}
       <div className="fixed top-20 right-4 z-40 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/50">
         <div className="flex items-center space-x-2">
-          <Timer size={18} className="text-red-500" />
-          <span className="font-bold text-red-500">{timeLeft}s</span>
+          <Timer size={18} className="text-primary-500" />
+          <span className="font-bold text-primary-500">{timeLeft}s</span>
         </div>
       </div>
 
@@ -59,7 +61,7 @@ const Catalogo = () => {
                   backgroundImage: `url(${profile.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  filter: 'blur(8px)'
+                  filter: profile.isBlurred ? 'blur(8px)' : 'none'
                 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
@@ -68,25 +70,27 @@ const Catalogo = () => {
               {/* VIP Badge */}
               {profile.isVip && (
                 <div className="absolute top-3 right-3">
-                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
+                  <div className="bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
                     <Crown size={12} />
                     <span>VIP</span>
                   </div>
                 </div>
               )}
 
-              {/* Lock Icon */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
-                  <Lock className="text-white" size={28} />
+              {/* Lock Icon for blurred images */}
+              {profile.isBlurred && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
+                    <Lock className="text-white" size={28} />
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Profile Info */}
               <div className="absolute bottom-3 left-3 text-white">
                 <p className="font-bold text-lg drop-shadow-lg">{profile.name}, {profile.age}</p>
                 <p className="text-sm flex items-center drop-shadow-lg">
-                  <span className="text-red-400 mr-1">❤️</span> Calça {profile.size}
+                  <span className="text-primary-400 mr-1">❤️</span> Calça {profile.size}
                 </p>
               </div>
 
@@ -95,7 +99,7 @@ const Catalogo = () => {
                 <Heart className="text-white" size={20} />
               </div>
 
-              {/* VIP Access Button */}
+              {/* VIP Access Button for VIP profiles */}
               {profile.isVip && (
                 <VipPopup
                   trigger={
@@ -111,7 +115,7 @@ const Catalogo = () => {
         <div className="mt-8 text-center animate-fade-in">
           <VipPopup
             trigger={
-              <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <button className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
                 🔥 ACESSO VIP COMPLETO
               </button>
             }
