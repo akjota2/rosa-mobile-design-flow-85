@@ -1,5 +1,5 @@
 
-import { AlertTriangle, Users } from 'lucide-react';
+import { AlertTriangle, Male } from 'lucide-react';
 
 export const Hero = () => {
   return (
@@ -31,7 +31,7 @@ export const Hero = () => {
           <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 animate-slide-up">
             <div className="flex items-center justify-center mb-6">
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl">
-                <Users className="text-white" size={28} />
+                <AlertTriangle className="text-white" size={28} />
               </div>
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">Mulheres</h3>
@@ -43,7 +43,7 @@ export const Hero = () => {
           <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 animate-slide-up delay-100">
             <div className="flex items-center justify-center mb-6">
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl">
-                <AlertTriangle className="text-white" size={28} />
+                <Male className="text-white" size={28} />
               </div>
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">Homens</h3>
