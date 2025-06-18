@@ -24,76 +24,79 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
         {trigger}
       </DialogTrigger>
       <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden">
-        <div className="relative" style={{ backgroundColor: '#FF69B4' }}>
-          {/* Sophisticated background decorative elements */}
-          <div className="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-          <div className="absolute top-1/4 right-0 w-32 h-32 bg-white/5 rounded-full blur-xl animate-pulse delay-700"></div>
-          <div className="absolute bottom-0 left-1/3 w-28 h-28 bg-white/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div className="relative bg-gradient-to-br from-gray-50 to-white">
+          {/* Subtle background decorative elements */}
+          <div className="absolute top-0 left-0 w-32 h-32 bg-pink-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-28 h-28 bg-pink-50/40 rounded-full blur-2xl"></div>
           
-          {/* Floating geometric shapes */}
-          <div className="absolute top-12 right-20 w-4 h-4 bg-white/30 rounded-full animate-bounce"></div>
-          <div className="absolute top-32 left-12 w-2 h-2 bg-white/40 rounded-full animate-pulse delay-500"></div>
-          <div className="absolute bottom-20 right-8 w-3 h-3 bg-white/25 rounded-full animate-bounce delay-300"></div>
+          {/* Floating pink accent dots */}
+          <div className="absolute top-12 right-20 w-2 h-2 bg-pink-400/60 rounded-full animate-pulse"></div>
+          <div className="absolute top-32 left-12 w-1.5 h-1.5 bg-pink-300/50 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute bottom-20 right-8 w-2.5 h-2.5 bg-pink-500/40 rounded-full animate-pulse delay-300"></div>
 
-          {/* Header with elegant close button */}
+          {/* Minimalist close button */}
           <div className="absolute top-6 right-6 z-20">
             <button
               onClick={() => setIsOpen(false)}
-              className="w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-110 border border-white/20 group"
+              className="w-10 h-10 bg-gray-100/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-gray-200/80 transition-all duration-300 shadow-lg border border-gray-200/50 group"
             >
-              <X size={20} className="text-white group-hover:text-white/80 transition-colors duration-300" />
+              <X size={18} className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300" />
             </button>
           </div>
 
           {/* Content */}
           <div className="p-8 text-center relative z-10">
-            {/* Elegant header with sophisticated typography */}
+            {/* Minimalist header */}
             <div className="mb-8">
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl animate-scale-in border border-white/30">
-                  <Eye className="text-white" size={28} />
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-white shadow-lg rounded-2xl flex items-center justify-center border border-gray-100">
+                  <Eye className="text-pink-500" size={28} />
                 </div>
               </div>
               
-              <h2 className="text-2xl font-light text-white mb-2 animate-fade-in">
+              <h2 className="text-2xl font-light text-gray-800 mb-2">
                 Você está pronto para
               </h2>
-              <h3 className="text-4xl font-bold text-white mb-2 animate-scale-in tracking-wide">
+              <h3 className="text-4xl font-bold text-gray-900 mb-2 tracking-wide">
                 espiar
               </h3>
-              <h4 className="text-2xl font-light text-white/90 mb-2 animate-fade-in delay-100">
+              <h4 className="text-2xl font-light text-gray-700 mb-2">
                 o Catálogo
               </h4>
-              <h5 className="text-3xl font-bold text-white animate-scale-in delay-200">
+              <h5 className="text-3xl font-bold text-pink-500">
                 Secreto?
               </h5>
               
-              {/* Decorative elements around title */}
+              {/* Minimalist decorative elements */}
               <div className="flex items-center justify-center space-x-4 mt-4">
-                <Star className="text-white/60" size={16} />
-                <Sparkles className="text-white/60" size={20} />
-                <Star className="text-white/60" size={16} />
+                <div className="w-1 h-1 bg-pink-400 rounded-full"></div>
+                <Sparkles className="text-pink-400" size={16} />
+                <div className="w-1 h-1 bg-pink-400 rounded-full"></div>
               </div>
             </div>
 
-            {/* Enhanced access info card */}
-            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 mb-6 shadow-2xl border border-white/20 animate-fade-in delay-200">
+            {/* Clean access info card */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-gray-100">
               <div className="flex items-center justify-center space-x-2 mb-3">
-                <Zap className="text-white" size={18} />
-                <p className="text-lg font-bold text-white">
-                  Acesso <span className="text-white/90">7x</span>
+                <div className="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center">
+                  <Zap className="text-pink-500" size={14} />
+                </div>
+                <p className="text-lg font-bold text-gray-800">
+                  Acesso <span className="text-pink-500">7x</span>
                 </p>
-                <Zap className="text-white" size={18} />
+                <div className="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center">
+                  <Zap className="text-pink-500" size={14} />
+                </div>
               </div>
-              <p className="text-sm text-white/80 mb-8 font-light">
+              <p className="text-sm text-gray-600 mb-8 font-light">
                 Explore nossa seleção exclusiva de modelos e personalize seu pack personalizado.
               </p>
 
               <div className="space-y-4">
-                {/* First profile card with enhanced design */}
+                {/* First profile card with clean design */}
                 <div className="relative">
                   <div 
-                    className="w-full h-36 rounded-2xl overflow-hidden relative shadow-2xl border border-white/10"
+                    className="w-full h-36 rounded-xl overflow-hidden relative shadow-md border border-gray-200"
                     style={{
                       backgroundImage: 'url(/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png)',
                       backgroundSize: 'cover',
@@ -101,31 +104,31 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
                       filter: 'blur(8px)'
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <div className="bg-white/20 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-xl flex items-center space-x-1 border border-white/30">
-                      <Star size={12} />
+                  <div className="absolute top-3 right-3">
+                    <div className="bg-pink-500 text-white text-xs px-2.5 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
+                      <Star size={10} />
                       <span>VIP</span>
                     </div>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-white/15 backdrop-blur-sm rounded-full p-4 border border-white/20">
-                      <Lock className="text-white" size={28} />
+                    <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-lg border border-gray-200">
+                      <Lock className="text-pink-500" size={24} />
                     </div>
                   </div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-bold text-lg drop-shadow-2xl">Lari, 22</p>
-                    <p className="text-sm flex items-center drop-shadow-2xl">
-                      <span className="text-white/80 mr-1">♥</span> Calça 35
+                  <div className="absolute bottom-3 left-3 text-white">
+                    <p className="font-bold text-lg drop-shadow-lg">Lari, 22</p>
+                    <p className="text-sm flex items-center drop-shadow-lg">
+                      <span className="text-pink-300 mr-1">♥</span> Calça 35
                     </p>
                   </div>
                 </div>
 
-                {/* Second profile card with enhanced design */}
+                {/* Second profile card with clean design */}
                 <div className="relative">
                   <div 
-                    className="w-full h-36 rounded-2xl overflow-hidden relative shadow-2xl border border-white/10"
+                    className="w-full h-36 rounded-xl overflow-hidden relative shadow-md border border-gray-200"
                     style={{
                       backgroundImage: 'url(/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png)',
                       backgroundSize: 'cover',
@@ -133,37 +136,37 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
                       filter: 'blur(8px)'
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-white/15 backdrop-blur-sm rounded-full p-4 border border-white/20">
-                      <Lock className="text-white" size={28} />
+                    <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-lg border border-gray-200">
+                      <Lock className="text-pink-500" size={24} />
                     </div>
                   </div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-bold text-lg drop-shadow-2xl">Ju, 24</p>
-                    <p className="text-sm flex items-center drop-shadow-2xl">
-                      <span className="text-white/80 mr-1">♥</span> Calça 37
+                  <div className="absolute bottom-3 left-3 text-white">
+                    <p className="font-bold text-lg drop-shadow-lg">Ju, 24</p>
+                    <p className="text-sm flex items-center drop-shadow-lg">
+                      <span className="text-pink-300 mr-1">♥</span> Calça 37
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Enhanced CTA button */}
+            {/* Clean CTA button with pink accent */}
             <Button 
-              className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-4 rounded-2xl text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 border border-white/30"
+              className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 rounded-xl text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               onClick={handleViewCatalog}
             >
               <Eye className="mr-2" size={20} />
               QUERO VER O CATÁLOGO
             </Button>
             
-            {/* Decorative bottom elements */}
+            {/* Minimalist bottom decoration */}
             <div className="flex items-center justify-center space-x-2 mt-4">
-              <div className="w-2 h-2 bg-white/40 rounded-full"></div>
-              <div className="w-3 h-3 bg-white/30 rounded-full"></div>
-              <div className="w-2 h-2 bg-white/40 rounded-full"></div>
+              <div className="w-1.5 h-1.5 bg-pink-300 rounded-full"></div>
+              <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+              <div className="w-1.5 h-1.5 bg-pink-300 rounded-full"></div>
             </div>
           </div>
         </div>
