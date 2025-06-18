@@ -1,4 +1,5 @@
 
+
 import { Heart, TrendingUp, Target } from 'lucide-react';
 
 export const ProfileCards = () => {
@@ -13,7 +14,7 @@ export const ProfileCards = () => {
       <div className="max-w-md mx-auto">
         <div className="bg-white rounded-2xl shadow-lg p-6">
           <div className="flex space-x-4 mb-6 border-b border-gray-200">
-            <button className="pb-3 px-2 text-primary-500 border-b-2 border-primary-500 font-semibold">
+            <button className="pb-3 px-2 text-[#ff84a4] border-b-2 border-[#ff84a4] font-semibold">
               Modelo
             </button>
             <button className="pb-3 px-2 text-gray-400 font-semibold">
@@ -36,8 +37,8 @@ export const ProfileCards = () => {
                   <h3 className="font-semibold text-gray-900">{profile.name}, {profile.age}</h3>
                   <p className="text-sm text-gray-500">Calça: {profile.shoe}</p>
                 </div>
-                <button className="p-2 hover:bg-primary-50 rounded-full transition-colors group">
-                  <Heart className="w-5 h-5 text-gray-400 group-hover:text-primary-500 transition-colors" />
+                <button className="p-2 hover:bg-pink-50 rounded-full transition-colors group">
+                  <Heart className="w-5 h-5 text-gray-400 group-hover:text-[#ff84a4] transition-colors" />
                 </button>
               </div>
             ))}
@@ -45,7 +46,7 @@ export const ProfileCards = () => {
         </div>
         
         <div className="mt-6 space-y-4">
-          <div className="bg-gradient-to-r from-primary-400 to-primary-500 text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
+          <div className="bg-gradient-to-r from-[#ed7a98] to-[#ff84a4] text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full transform translate-x-16 -translate-y-16"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full transform -translate-x-8 translate-y-8"></div>
             
@@ -55,14 +56,14 @@ export const ProfileCards = () => {
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-lg mb-2">Mulheres</h3>
-                <p className="text-primary-50 text-sm leading-relaxed">
+                <p className="text-pink-50 text-sm leading-relaxed">
                   transformam isso em <span className="font-bold text-white">renda extra</span>, sem mostrar o rosto.
                 </p>
               </div>
             </div>
           </div>
           
-          <div className="bg-gradient-to-r from-primary-400 to-primary-500 text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
+          <div className="bg-gradient-to-r from-[#ed7a98] to-[#ff84a4] text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
             <div className="absolute top-0 right-0 w-28 h-28 bg-white/10 rounded-full transform translate-x-12 -translate-y-12"></div>
             <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full transform -translate-x-6 translate-y-6"></div>
             
@@ -72,7 +73,7 @@ export const ProfileCards = () => {
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-lg mb-2">Homens</h3>
-                <p className="text-primary-50 text-sm leading-relaxed">
+                <p className="text-pink-50 text-sm leading-relaxed">
                   com preferências <span className="font-bold text-white">encontram exatamente</span> o que querem.
                 </p>
               </div>
@@ -83,3 +84,4 @@ export const ProfileCards = () => {
     </section>
   );
 };
+
