@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { Eye, Lock, Star, Zap, Sparkles } from 'lucide-react';
+import { Eye, Lock, Star, Zap, Sparkles, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,6 +16,10 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
   const handleViewCatalog = () => {
     setIsOpen(false);
     navigate('/catalogo');
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -33,6 +37,16 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
           <div className="absolute top-12 right-20 w-2 h-2 bg-pink-400/60 rounded-full animate-pulse"></div>
           <div className="absolute top-32 left-12 w-1.5 h-1.5 bg-pink-300/50 rounded-full animate-pulse delay-500"></div>
           <div className="absolute bottom-20 right-8 w-2.5 h-2.5 bg-pink-500/40 rounded-full animate-pulse delay-300"></div>
+
+          {/* Custom close button positioned lower */}
+          <div className="absolute top-12 right-6 z-20">
+            <button
+              onClick={handleClose}
+              className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg border border-gray-200/50 group"
+            >
+              <X size={18} className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300" />
+            </button>
+          </div>
 
           {/* Content */}
           <div className="p-8 text-center relative z-10">
