@@ -3,20 +3,15 @@ import { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { VipPopup } from '@/components/VipPopup';
-import { Timer, Crown, Heart, Lock } from 'lucide-react';
+import { Timer, Crown, Heart, Lock, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const Catalogo = () => {
   const [timeLeft, setTimeLeft] = useState(10);
   const [showVipPopup, setShowVipPopup] = useState(false);
-
-  useEffect(() => {
-    if (timeLeft > 0) {
-      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-      return () => clearTimeout(timer);
-    } else {
-      setShowVipPopup(true);
-    }
-  }, [timeLeft]);
+  const [shuffledProfiles, setShuffledProfiles] = useState<any[]>([]);
+  const navigate = useNavigate();
 
   const profiles = [
     { name: 'Lari', age: 22, size: 35, image: '/lovable-uploads/5d3b86d2-dbd3-42d6-bad3-5fd9529b0a78.png', isVip: true, isBlurred: true },
@@ -29,9 +24,41 @@ const Catalogo = () => {
     { name: 'Luna', age: 22, size: 37, image: '/lovable-uploads/6b6b547c-060d-40cd-a714-2112922a50a4.png', isVip: false, isBlurred: false },
   ];
 
+  // Shuffle profiles on component mount
+  useEffect(() => {
+    const shuffled = [...profiles].sort(() => Math.random() - 0.5);
+    setShuffledProfiles(shuffled);
+  }, []);
+
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setShowVipPopup(true);
+    }
+  }, [timeLeft]);
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-pink-50">
       <Header />
+      
+      {/* Back Button */}
+      <div className="fixed top-20 left-4 z-40">
+        <Button
+          onClick={handleGoBack}
+          variant="outline"
+          size="sm"
+          className="bg-white/90 backdrop-blur-sm border-gray-200/50 hover:bg-white shadow-lg"
+        >
+          <ArrowLeft size={16} className="mr-2" />
+          Voltar
+        </Button>
+      </div>
       
       {/* Timer */}
       <div className="fixed top-20 right-4 z-40 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/50">
@@ -41,7 +68,7 @@ const Catalogo = () => {
         </div>
       </div>
 
-      <div className="max-w-md mx-auto px-4 py-8">
+      <div className="max-w-md mx-auto px-4 py-8 pt-20">
         <div className="text-center mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Catálogo{' '}
@@ -53,7 +80,7 @@ const Catalogo = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          {profiles.map((profile, index) => (
+          {shuffledProfiles.map((profile, index) => (
             <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
               <div 
                 className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
@@ -70,7 +97,7 @@ const Catalogo = () => {
               {/* VIP Badge */}
               {profile.isVip && (
                 <div className="absolute top-3 right-3">
-                  <div className="bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
+                  <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
                     <Crown size={12} />
                     <span>VIP</span>
                   </div>
@@ -90,7 +117,8 @@ const Catalogo = () => {
               <div className="absolute bottom-3 left-3 text-white">
                 <p className="font-bold text-lg drop-shadow-lg">{profile.name}, {profile.age}</p>
                 <p className="text-sm flex items-center drop-shadow-lg">
-                  <span className="text-primary-400 mr-1">❤️</span> Calça {profile.size}
+                  <Heart className="text-pink-400 mr-1" size={14} />
+                  Calça {profile.size}
                 </p>
               </div>
 
@@ -115,8 +143,9 @@ const Catalogo = () => {
         <div className="mt-8 text-center animate-fade-in">
           <VipPopup
             trigger={
-              <button className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                🔥 ACESSO VIP COMPLETO
+              <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+                <Crown size={20} />
+                <span>ACESSO VIP COMPLETO</span>
               </button>
             }
           />
