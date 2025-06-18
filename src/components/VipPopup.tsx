@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { Crown, Star, Zap, Shield, Sparkles, CheckCircle } from 'lucide-react';
+import { Crown, Star, Zap, Shield, Sparkles, CheckCircle, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface VipPopupProps {
@@ -36,6 +36,14 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
       {!autoOpen && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden [&>button]:hidden">
         <div className="relative bg-gradient-to-br from-slate-50 via-white to-pink-50/30">
+          {/* Close Button */}
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 z-20 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+          >
+            <X size={20} className="text-gray-600" />
+          </button>
+
           {/* Background decorative elements */}
           <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-pink-100/40 to-primary-100/30 rounded-full blur-2xl"></div>
           <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-primary-100/30 to-pink-100/20 rounded-full blur-2xl"></div>
@@ -88,7 +96,7 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-2xl p-5 mb-6 shadow-lg border border-orange-200/20">
+            <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white rounded-2xl p-5 mb-6 shadow-lg border border-primary-200/20">
               <div className="flex items-center justify-center space-x-2 mb-2">
                 <Zap className="text-white" size={16} />
                 <p className="text-sm font-bold">OFERTA LIMITADA</p>
