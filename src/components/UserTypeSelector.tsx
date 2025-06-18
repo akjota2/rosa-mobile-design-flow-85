@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { CatalogPopup } from './CatalogPopup';
+import { ModelOnboardingFlow } from './ModelOnboardingFlow';
 import { PersonStanding, Eye, Target, Sparkles, DollarSign, User, Shield } from 'lucide-react';
 
 interface UserTypeSelectorProps {
@@ -10,6 +11,7 @@ interface UserTypeSelectorProps {
 
 export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProps) => {
   const [selectedType, setSelectedType] = useState<'modelo' | 'admirador'>('admirador');
+  const [showModelOnboarding, setShowModelOnboarding] = useState(false);
 
   return (
     <section className="py-16 px-4 bg-gradient-to-br from-gray-50 via-white to-pink-50 relative overflow-hidden">
@@ -113,7 +115,10 @@ export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProp
           </div>
           
           {selectedType === 'modelo' ? (
-            <button className="w-full bg-gradient-to-r from-primary-500 to-pink-500 text-white py-4 px-6 rounded-2xl font-bold text-lg hover:from-primary-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 flex items-center justify-center space-x-2">
+            <button 
+              onClick={() => setShowModelOnboarding(true)}
+              className="w-full bg-gradient-to-r from-primary-500 to-pink-500 text-white py-4 px-6 rounded-2xl font-bold text-lg hover:from-primary-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 flex items-center justify-center space-x-2"
+            >
               <DollarSign size={20} />
               <span>QUERO LUCRAR</span>
             </button>
@@ -129,6 +134,12 @@ export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProp
           )}
         </div>
       </div>
+
+      {/* Model Onboarding Flow */}
+      <ModelOnboardingFlow 
+        isOpen={showModelOnboarding}
+        onClose={() => setShowModelOnboarding(false)}
+      />
     </section>
   );
 };
