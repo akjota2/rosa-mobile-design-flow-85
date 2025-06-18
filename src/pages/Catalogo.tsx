@@ -12,7 +12,7 @@ const Catalogo = () => {
   const [showVipPopup, setShowVipPopup] = useState(false);
   const navigate = useNavigate();
 
-  const profiles = [
+  const originalProfiles = [
     { name: 'Lari', age: 22, size: 35, image: '/lovable-uploads/5d3b86d2-dbd3-42d6-bad3-5fd9529b0a78.png', isVip: true, isBlurred: true },
     { name: 'Ju', age: 24, size: 37, image: '/lovable-uploads/95f639f1-5e1b-460e-872e-133690efaad5.png', isVip: false, isBlurred: false },
     { name: 'Ana', age: 26, size: 36, image: '/lovable-uploads/9d336adb-200c-496a-9ec4-4204bd1d2717.png', isVip: true, isBlurred: true },
@@ -22,6 +22,28 @@ const Catalogo = () => {
     { name: 'Gabi', age: 23, size: 36, image: '/lovable-uploads/a17b990f-dd9d-413b-bb48-03cd407fc798.png', isVip: true, isBlurred: true },
     { name: 'Luna', age: 22, size: 37, image: '/lovable-uploads/6b6b547c-060d-40cd-a714-2112922a50a4.png', isVip: false, isBlurred: false },
   ];
+
+  // Alternate between VIP and non-VIP profiles
+  const getAlternatedProfiles = () => {
+    const vipProfiles = originalProfiles.filter(profile => profile.isVip);
+    const nonVipProfiles = originalProfiles.filter(profile => !profile.isVip);
+    const alternated = [];
+    
+    const maxLength = Math.max(vipProfiles.length, nonVipProfiles.length);
+    
+    for (let i = 0; i < maxLength; i++) {
+      if (i < nonVipProfiles.length) {
+        alternated.push(nonVipProfiles[i]);
+      }
+      if (i < vipProfiles.length) {
+        alternated.push(vipProfiles[i]);
+      }
+    }
+    
+    return alternated;
+  };
+
+  const profiles = getAlternatedProfiles();
 
   useEffect(() => {
     if (timeLeft > 0) {
@@ -85,19 +107,25 @@ const Catalogo = () => {
             <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
               <div 
                 className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                style={{
-                  backgroundImage: `url(${profile.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  filter: profile.isBlurred ? 'blur(8px)' : 'none'
-                }}
                 onClick={() => handleProfileClick(profile.name, profile.isVip)}
               >
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 w-full h-full"
+                  style={{
+                    backgroundImage: `url(${profile.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: profile.isBlurred ? 'blur(8px)' : 'none'
+                  }}
+                ></div>
+                
+                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
                 
-                {/* VIP Badge */}
+                {/* VIP Badge - Always visible */}
                 {profile.isVip && (
-                  <div className="absolute top-3 right-3">
+                  <div className="absolute top-3 right-3 z-10">
                     <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
                       <Crown size={12} />
                       <span>VIP</span>
@@ -105,17 +133,17 @@ const Catalogo = () => {
                   </div>
                 )}
 
-                {/* Lock Icon for blurred images */}
+                {/* Lock Icon for blurred images - Always visible */}
                 {profile.isBlurred && (
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
                       <Lock className="text-white" size={28} />
                     </div>
                   </div>
                 )}
 
-                {/* Profile Info */}
-                <div className="absolute bottom-3 left-3 text-white">
+                {/* Profile Info - Always visible */}
+                <div className="absolute bottom-3 left-3 text-white z-10">
                   <p className="font-bold text-lg drop-shadow-lg">{profile.name}, {profile.age}</p>
                   <p className="text-sm flex items-center drop-shadow-lg">
                     <Heart className="text-pink-400 mr-1" size={14} />
@@ -123,8 +151,8 @@ const Catalogo = () => {
                   </p>
                 </div>
 
-                {/* Heart Icon */}
-                <div className="absolute bottom-3 right-3">
+                {/* Heart Icon - Always visible */}
+                <div className="absolute bottom-3 right-3 z-10">
                   <Heart className="text-white" size={20} />
                 </div>
               </div>
