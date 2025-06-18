@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { X, Crown, Star, Zap, Shield, Sparkles, CheckCircle } from 'lucide-react';
+import { Crown, Star, Zap, Shield, Sparkles, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface VipPopupProps {
@@ -34,21 +34,11 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       {!autoOpen && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden">
+      <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden [&>button]:hidden">
         <div className="relative bg-gradient-to-br from-slate-50 via-white to-pink-50/30">
           {/* Background decorative elements */}
           <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-pink-100/40 to-primary-100/30 rounded-full blur-2xl"></div>
           <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-primary-100/30 to-pink-100/20 rounded-full blur-2xl"></div>
-
-          {/* Header with close button */}
-          <div className="absolute top-6 right-6 z-20">
-            <button
-              onClick={handleClose}
-              className="w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 border border-gray-100"
-            >
-              <X size={18} className="text-gray-600" />
-            </button>
-          </div>
 
           {/* Content */}
           <div className="p-8 text-center relative z-10">
