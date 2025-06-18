@@ -34,7 +34,7 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       {!autoOpen && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden [&>button]:hidden">
+      <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden">
         <div className="relative bg-gradient-to-br from-slate-50 via-white to-purple-50/30">
           {/* Background decorative elements */}
           <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-purple-100/40 to-pink-100/30 rounded-full blur-2xl"></div>
