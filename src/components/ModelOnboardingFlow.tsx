@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -166,7 +165,7 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
           <div className="flex items-center justify-center space-x-3 mb-4">
             <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
               <img 
-                src="/lovable-uploads/7dd0d010-2f98-4a58-90f5-91a13f3a0230.png" 
+                src="/lovable-uploads/65fd33d2-6704-424f-8dbe-60a60fe16179.png" 
                 alt="Modelo de sucesso" 
                 className="w-full h-full object-cover"
               />
@@ -183,7 +182,7 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
             <div className="flex items-start space-x-3">
               <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src="/lovable-uploads/7dd0d010-2f98-4a58-90f5-91a13f3a0230.png" 
+                  src="/lovable-uploads/65fd33d2-6704-424f-8dbe-60a60fe16179.png" 
                   alt="Avatar Luna" 
                   className="w-full h-full object-cover"
                 />
@@ -204,7 +203,7 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
             <div className="flex items-start space-x-3">
               <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src="/lovable-uploads/7dd0d010-2f98-4a58-90f5-91a13f3a0230.png" 
+                  src="/lovable-uploads/65fd33d2-6704-424f-8dbe-60a60fe16179.png" 
                   alt="Avatar Luna" 
                   className="w-full h-full object-cover"
                 />
@@ -221,7 +220,7 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
             <div className="flex items-start space-x-3">
               <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src="/lovable-uploads/7dd0d010-2f98-4a58-90f5-91a13f3a0230.png" 
+                  src="/lovable-uploads/65fd33d2-6704-424f-8dbe-60a60fe16179.png" 
                   alt="Avatar Luna" 
                   className="w-full h-full object-cover"
                 />

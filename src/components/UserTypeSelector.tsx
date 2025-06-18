@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { CatalogPopup } from './CatalogPopup';
 import { ModelOnboardingFlow } from './ModelOnboardingFlow';
@@ -14,12 +13,12 @@ export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProp
   const [showModelOnboarding, setShowModelOnboarding] = useState(false);
 
   const handleModelClick = () => {
-    // Sempre fecha e reabre para garantir que reinicie do zero
+    // Fecha completamente e força reset do estado
     setShowModelOnboarding(false);
-    // Pequeno delay para garantir que o estado seja resetado
+    // Delay maior para garantir que o componente seja completamente desmontado
     setTimeout(() => {
       setShowModelOnboarding(true);
-    }, 150);
+    }, 200);
   };
 
   return (
@@ -144,8 +143,9 @@ export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProp
         </div>
       </div>
 
-      {/* Model Onboarding Flow */}
+      {/* Model Onboarding Flow com key para forçar remount */}
       <ModelOnboardingFlow 
+        key={showModelOnboarding ? 'open' : 'closed'}
         isOpen={showModelOnboarding}
         onClose={() => setShowModelOnboarding(false)}
       />
