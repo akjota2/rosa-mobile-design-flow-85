@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { X, Lock } from 'lucide-react';
+import { X, Lock, Eye, Star, Zap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,105 +24,147 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
         {trigger}
       </DialogTrigger>
       <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden">
-        <div className="relative bg-gradient-to-br from-gray-50 via-white to-pink-50">
-          {/* Background decorative elements */}
-          <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-primary-200/20 to-primary-300/10 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-pink-200/20 to-purple-200/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900">
+          {/* Sophisticated background decorative elements */}
+          <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-pink-400/20 to-purple-500/15 rounded-full blur-2xl animate-pulse"></div>
+          <div className="absolute top-1/4 right-0 w-32 h-32 bg-gradient-to-tl from-primary-400/15 to-pink-400/10 rounded-full blur-xl animate-pulse delay-700"></div>
+          <div className="absolute bottom-0 left-1/3 w-28 h-28 bg-gradient-to-tr from-purple-400/10 to-pink-300/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          
+          {/* Floating geometric shapes */}
+          <div className="absolute top-12 right-20 w-4 h-4 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full opacity-30 animate-bounce"></div>
+          <div className="absolute top-32 left-12 w-2 h-2 bg-gradient-to-r from-primary-400 to-pink-400 rounded-full opacity-40 animate-pulse delay-500"></div>
+          <div className="absolute bottom-20 right-8 w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-25 animate-bounce delay-300"></div>
 
-          {/* Header with close button */}
-          <div className="absolute top-4 right-4 z-10">
+          {/* Header with elegant close button */}
+          <div className="absolute top-6 right-6 z-20">
             <button
               onClick={() => setIsOpen(false)}
-              className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-110 border border-white/20 group"
             >
-              <X size={18} className="text-gray-600" />
+              <X size={20} className="text-white group-hover:text-pink-200 transition-colors duration-300" />
             </button>
           </div>
 
           {/* Content */}
           <div className="p-8 text-center relative z-10">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2 animate-fade-in">
-              Você está pronto para
-            </h2>
-            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-pink-600 mb-4 animate-scale-in">
-              espiar
-            </h3>
-            <h4 className="text-xl font-bold text-gray-900 mb-6 animate-fade-in delay-100">
-              o Catálogo Secreto?
-            </h4>
+            {/* Elegant header with sophisticated typography */}
+            <div className="mb-8">
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl animate-scale-in">
+                  <Eye className="text-white" size={28} />
+                </div>
+              </div>
+              
+              <h2 className="text-2xl font-light text-white mb-2 animate-fade-in">
+                Você está pronto para
+              </h2>
+              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-pink-400 mb-2 animate-scale-in tracking-wide">
+                espiar
+              </h3>
+              <h4 className="text-2xl font-light text-white/90 mb-2 animate-fade-in delay-100">
+                o Catálogo
+              </h4>
+              <h5 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-400 animate-scale-in delay-200">
+                Secreto?
+              </h5>
+              
+              {/* Decorative elements around title */}
+              <div className="flex items-center justify-center space-x-4 mt-4">
+                <Star className="text-pink-300/60" size={16} />
+                <Sparkles className="text-purple-300/60" size={20} />
+                <Star className="text-pink-300/60" size={16} />
+              </div>
+            </div>
 
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-white/50 animate-fade-in delay-200">
-              <p className="text-sm text-gray-600 mb-2 font-semibold">
-                Acesso <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-pink-600">7x</span>
-              </p>
-              <p className="text-xs text-gray-500 mb-6">
+            {/* Enhanced access info card */}
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 mb-6 shadow-2xl border border-white/20 animate-fade-in delay-200">
+              <div className="flex items-center justify-center space-x-2 mb-3">
+                <Zap className="text-pink-300" size={18} />
+                <p className="text-lg font-bold text-white">
+                  Acesso <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-300">7x</span>
+                </p>
+                <Zap className="text-pink-300" size={18} />
+              </div>
+              <p className="text-sm text-white/80 mb-8 font-light">
                 Explore nossa seleção exclusiva de modelos e personalize seu pack personalizado.
               </p>
 
-              {/* First profile card */}
-              <div className="relative mb-4">
-                <div 
-                  className="w-full h-32 rounded-xl overflow-hidden relative shadow-lg"
-                  style={{
-                    backgroundImage: 'url(/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'blur(8px)'
-                  }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
-                </div>
-                <div className="absolute top-3 right-3">
-                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">
-                    VIP
+              <div className="space-y-4">
+                {/* First profile card with enhanced design */}
+                <div className="relative">
+                  <div 
+                    className="w-full h-36 rounded-2xl overflow-hidden relative shadow-2xl border border-white/10"
+                    style={{
+                      backgroundImage: 'url(/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'blur(8px)'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
+                  </div>
+                  <div className="absolute top-4 right-4">
+                    <div className="bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-xl flex items-center space-x-1">
+                      <Star size={12} />
+                      <span>VIP</span>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white/15 backdrop-blur-sm rounded-full p-4 border border-white/20">
+                      <Lock className="text-white" size={28} />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="font-bold text-lg drop-shadow-2xl">Lari, 22</p>
+                    <p className="text-sm flex items-center drop-shadow-2xl">
+                      <span className="text-pink-300 mr-1">♥</span> Calça 35
+                    </p>
                   </div>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
-                    <Lock className="text-white" size={24} />
-                  </div>
-                </div>
-                <div className="absolute bottom-3 left-3 text-white">
-                  <p className="font-bold text-lg drop-shadow-lg">Lari, 22</p>
-                  <p className="text-sm flex items-center drop-shadow-lg">
-                    <span className="text-red-400 mr-1">❤️</span> Calça 35
-                  </p>
-                </div>
-              </div>
 
-              {/* Second profile card */}
-              <div className="relative">
-                <div 
-                  className="w-full h-32 rounded-xl overflow-hidden relative shadow-lg"
-                  style={{
-                    backgroundImage: 'url(/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'blur(8px)'
-                  }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
-                    <Lock className="text-white" size={24} />
+                {/* Second profile card with enhanced design */}
+                <div className="relative">
+                  <div 
+                    className="w-full h-36 rounded-2xl overflow-hidden relative shadow-2xl border border-white/10"
+                    style={{
+                      backgroundImage: 'url(/lovable-uploads/84dfb7ce-4f10-445c-a733-e7d5f2ae6033.png)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'blur(8px)'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
                   </div>
-                </div>
-                <div className="absolute bottom-3 left-3 text-white">
-                  <p className="font-bold text-lg drop-shadow-lg">Ju, 24</p>
-                  <p className="text-sm flex items-center drop-shadow-lg">
-                    <span className="text-red-400 mr-1">❤️</span> Calça 37
-                  </p>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white/15 backdrop-blur-sm rounded-full p-4 border border-white/20">
+                      <Lock className="text-white" size={28} />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="font-bold text-lg drop-shadow-2xl">Ju, 24</p>
+                    <p className="text-sm flex items-center drop-shadow-2xl">
+                      <span className="text-pink-300 mr-1">♥</span> Calça 37
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
+            {/* Enhanced CTA button */}
             <Button 
-              className="w-full bg-gradient-to-r from-primary-500 to-pink-500 hover:from-primary-600 hover:to-pink-600 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 hover:from-pink-600 hover:via-purple-600 hover:to-pink-700 text-white font-bold py-4 rounded-2xl text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 border border-white/20"
               onClick={handleViewCatalog}
             >
+              <Eye className="mr-2" size={20} />
               QUERO VER O CATÁLOGO
             </Button>
+            
+            {/* Decorative bottom elements */}
+            <div className="flex items-center justify-center space-x-2 mt-4">
+              <div className="w-2 h-2 bg-pink-300/40 rounded-full"></div>
+              <div className="w-3 h-3 bg-purple-300/40 rounded-full"></div>
+              <div className="w-2 h-2 bg-pink-300/40 rounded-full"></div>
+            </div>
           </div>
         </div>
       </DialogContent>

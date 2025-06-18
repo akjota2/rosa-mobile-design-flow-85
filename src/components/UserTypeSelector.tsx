@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { CatalogPopup } from './CatalogPopup';
-import { PersonStanding, Eye, Target, Sparkles, DollarSign, User } from 'lucide-react';
+import { PersonStanding, Eye, Target, Sparkles, DollarSign, User, Shield } from 'lucide-react';
 
 interface UserTypeSelectorProps {
   userType: 'modelo' | 'admirador' | null;
@@ -83,7 +83,7 @@ export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProp
                 </div>
                 <div className="flex items-start space-x-3 text-left">
                   <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-pink-500 rounded-full flex items-center justify-center shadow-md mt-0.5 flex-shrink-0">
-                    <span className="text-white text-xs">🔒</span>
+                    <Shield className="text-white" size={14} />
                   </div>
                   <span className="text-gray-700 text-sm">Grupo fechado, seguro e anônimo</span>
                 </div>
@@ -113,14 +113,16 @@ export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProp
           </div>
           
           {selectedType === 'modelo' ? (
-            <button className="w-full bg-gradient-to-r from-primary-500 to-pink-500 text-white py-4 px-6 rounded-2xl font-bold text-lg hover:from-primary-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
-              💰 QUERO LUCRAR
+            <button className="w-full bg-gradient-to-r from-primary-500 to-pink-500 text-white py-4 px-6 rounded-2xl font-bold text-lg hover:from-primary-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 flex items-center justify-center space-x-2">
+              <DollarSign size={20} />
+              <span>QUERO LUCRAR</span>
             </button>
           ) : (
             <CatalogPopup
               trigger={
-                <button className="w-full bg-gradient-to-r from-primary-500 to-pink-500 text-white py-4 px-6 rounded-2xl font-bold text-lg hover:from-primary-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
-                  ❤️ QUERO ADMIRAR
+                <button className="w-full bg-gradient-to-r from-primary-500 to-pink-500 text-white py-4 px-6 rounded-2xl font-bold text-lg hover:from-primary-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 flex items-center justify-center space-x-2">
+                  <Eye size={20} />
+                  <span>QUERO ADMIRAR</span>
                 </button>
               }
             />
