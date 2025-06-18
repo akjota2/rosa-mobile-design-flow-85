@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
-import { ProfileCards } from '@/components/ProfileCards';
 import { UserTypeSelector } from '@/components/UserTypeSelector';
 import { Features } from '@/components/Features';
 import { FAQ } from '@/components/FAQ';
@@ -36,7 +35,6 @@ const Index = () => {
       <Hero />
       <UserTypeSelector userType={userType} setUserType={setUserType} />
       <IPhoneMockup />
-      <ProfileCards />
       <Features />
       <FAQ />
       <Footer />
