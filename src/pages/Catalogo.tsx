@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -13,9 +14,9 @@ const Catalogo = () => {
   const navigate = useNavigate();
 
   const originalProfiles = [
-    { name: 'Lari', age: 22, size: 35, image: '/lovable-uploads/5d3b86d2-dbd3-42d6-bad3-5fd9529b0a78.png', isVip: true, isBlurred: true },
+    { name: 'Lari', age: 22, size: 35, image: '/lovable-uploads/886901b9-857e-4d70-95ed-bba29ce2748a.png', isVip: true, isBlurred: true },
     { name: 'Ju', age: 24, size: 37, image: '/lovable-uploads/95f639f1-5e1b-460e-872e-133690efaad5.png', isVip: false, isBlurred: false },
-    { name: 'Ana', age: 26, size: 36, image: '/lovable-uploads/9d336adb-200c-496a-9ec4-4204bd1d2717.png', isVip: true, isBlurred: true },
+    { name: 'Ana', age: 26, size: 36, image: '/lovable-uploads/e3063516-e582-40c1-80b2-902c67e00e9e.png', isVip: true, isBlurred: true },
     { name: 'Carol', age: 23, size: 38, image: '/lovable-uploads/1882614c-ef48-4d46-85b3-7b76aab277c5.png', isVip: false, isBlurred: false },
     { name: 'Mari', age: 25, size: 35, image: '/lovable-uploads/198e52e0-675a-47be-b5ea-b6b417e15d15.png', isVip: true, isBlurred: true },
     { name: 'Bianca', age: 21, size: 34, image: '/lovable-uploads/5d3b86d2-dbd3-42d6-bad3-5fd9529b0a78.png', isVip: false, isBlurred: false },
