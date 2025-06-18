@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { CatalogPopup } from './CatalogPopup';
 import { PersonStanding, Eye, Target, Sparkles } from 'lucide-react';
@@ -68,23 +69,17 @@ export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProp
           <div className="space-y-6 mb-10">
             {selectedType === 'modelo' ? (
               <>
-                <div className="flex items-center space-x-4 animate-fade-in">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-pink-100 rounded-full flex items-center justify-center shadow-md">
-                    <span className="text-primary-500 text-xl">💰</span>
+                <div className="flex items-start space-x-4 animate-fade-in text-left">
+                  <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-pink-500 rounded-full flex items-center justify-center shadow-md mt-1 flex-shrink-0">
+                    <span className="text-white text-xs">💰</span>
                   </div>
-                  <span className="text-gray-700 font-medium">Lucro diário com conteúdo especial</span>
+                  <span className="text-gray-700 font-medium">Mulheres transformam isso em <strong>renda extra</strong>, sem mostrar o rosto.</span>
                 </div>
-                <div className="flex items-center space-x-4 animate-fade-in delay-100">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-pink-100 rounded-full flex items-center justify-center shadow-md">
-                    <span className="text-primary-500 text-xl">📊</span>
+                <div className="flex items-start space-x-4 animate-fade-in delay-100 text-left">
+                  <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-pink-500 rounded-full flex items-center justify-center shadow-md mt-1 flex-shrink-0">
+                    <span className="text-white text-xs">👥</span>
                   </div>
-                  <span className="text-gray-700 font-medium">Você escolhe quanto mostrar e quanto cobrar</span>
-                </div>
-                <div className="flex items-center space-x-4 animate-fade-in delay-200">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-pink-100 rounded-full flex items-center justify-center shadow-md">
-                    <span className="text-primary-500 text-xl">🔒</span>
-                  </div>
-                  <span className="text-gray-700 font-medium">Grupo fechado, seguro e anônimo</span>
+                  <span className="text-gray-700 font-medium">Homens com preferências <strong>encontram exatamente</strong> o que querem.</span>
                 </div>
               </>
             ) : (
