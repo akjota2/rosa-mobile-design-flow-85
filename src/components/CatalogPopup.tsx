@@ -24,16 +24,16 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
         {trigger}
       </DialogTrigger>
       <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden">
-        <div className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900">
+        <div className="relative" style={{ backgroundColor: '#FF69B4' }}>
           {/* Sophisticated background decorative elements */}
-          <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-pink-400/20 to-purple-500/15 rounded-full blur-2xl animate-pulse"></div>
-          <div className="absolute top-1/4 right-0 w-32 h-32 bg-gradient-to-tl from-primary-400/15 to-pink-400/10 rounded-full blur-xl animate-pulse delay-700"></div>
-          <div className="absolute bottom-0 left-1/3 w-28 h-28 bg-gradient-to-tr from-purple-400/10 to-pink-300/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+          <div className="absolute top-1/4 right-0 w-32 h-32 bg-white/5 rounded-full blur-xl animate-pulse delay-700"></div>
+          <div className="absolute bottom-0 left-1/3 w-28 h-28 bg-white/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
           
           {/* Floating geometric shapes */}
-          <div className="absolute top-12 right-20 w-4 h-4 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full opacity-30 animate-bounce"></div>
-          <div className="absolute top-32 left-12 w-2 h-2 bg-gradient-to-r from-primary-400 to-pink-400 rounded-full opacity-40 animate-pulse delay-500"></div>
-          <div className="absolute bottom-20 right-8 w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-25 animate-bounce delay-300"></div>
+          <div className="absolute top-12 right-20 w-4 h-4 bg-white/30 rounded-full animate-bounce"></div>
+          <div className="absolute top-32 left-12 w-2 h-2 bg-white/40 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute bottom-20 right-8 w-3 h-3 bg-white/25 rounded-full animate-bounce delay-300"></div>
 
           {/* Header with elegant close button */}
           <div className="absolute top-6 right-6 z-20">
@@ -41,7 +41,7 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
               onClick={() => setIsOpen(false)}
               className="w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-110 border border-white/20 group"
             >
-              <X size={20} className="text-white group-hover:text-pink-200 transition-colors duration-300" />
+              <X size={20} className="text-white group-hover:text-white/80 transition-colors duration-300" />
             </button>
           </div>
 
@@ -50,7 +50,7 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
             {/* Elegant header with sophisticated typography */}
             <div className="mb-8">
               <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl animate-scale-in">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl animate-scale-in border border-white/30">
                   <Eye className="text-white" size={28} />
                 </div>
               </div>
@@ -58,32 +58,32 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
               <h2 className="text-2xl font-light text-white mb-2 animate-fade-in">
                 Você está pronto para
               </h2>
-              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-pink-400 mb-2 animate-scale-in tracking-wide">
+              <h3 className="text-4xl font-bold text-white mb-2 animate-scale-in tracking-wide">
                 espiar
               </h3>
               <h4 className="text-2xl font-light text-white/90 mb-2 animate-fade-in delay-100">
                 o Catálogo
               </h4>
-              <h5 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-400 animate-scale-in delay-200">
+              <h5 className="text-3xl font-bold text-white animate-scale-in delay-200">
                 Secreto?
               </h5>
               
               {/* Decorative elements around title */}
               <div className="flex items-center justify-center space-x-4 mt-4">
-                <Star className="text-pink-300/60" size={16} />
-                <Sparkles className="text-purple-300/60" size={20} />
-                <Star className="text-pink-300/60" size={16} />
+                <Star className="text-white/60" size={16} />
+                <Sparkles className="text-white/60" size={20} />
+                <Star className="text-white/60" size={16} />
               </div>
             </div>
 
             {/* Enhanced access info card */}
             <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 mb-6 shadow-2xl border border-white/20 animate-fade-in delay-200">
               <div className="flex items-center justify-center space-x-2 mb-3">
-                <Zap className="text-pink-300" size={18} />
+                <Zap className="text-white" size={18} />
                 <p className="text-lg font-bold text-white">
-                  Acesso <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-300">7x</span>
+                  Acesso <span className="text-white/90">7x</span>
                 </p>
-                <Zap className="text-pink-300" size={18} />
+                <Zap className="text-white" size={18} />
               </div>
               <p className="text-sm text-white/80 mb-8 font-light">
                 Explore nossa seleção exclusiva de modelos e personalize seu pack personalizado.
@@ -104,7 +104,7 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <div className="bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-xl flex items-center space-x-1">
+                    <div className="bg-white/20 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-xl flex items-center space-x-1 border border-white/30">
                       <Star size={12} />
                       <span>VIP</span>
                     </div>
@@ -117,7 +117,7 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
                   <div className="absolute bottom-4 left-4 text-white">
                     <p className="font-bold text-lg drop-shadow-2xl">Lari, 22</p>
                     <p className="text-sm flex items-center drop-shadow-2xl">
-                      <span className="text-pink-300 mr-1">♥</span> Calça 35
+                      <span className="text-white/80 mr-1">♥</span> Calça 35
                     </p>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
                   <div className="absolute bottom-4 left-4 text-white">
                     <p className="font-bold text-lg drop-shadow-2xl">Ju, 24</p>
                     <p className="text-sm flex items-center drop-shadow-2xl">
-                      <span className="text-pink-300 mr-1">♥</span> Calça 37
+                      <span className="text-white/80 mr-1">♥</span> Calça 37
                     </p>
                   </div>
                 </div>
@@ -152,7 +152,7 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
 
             {/* Enhanced CTA button */}
             <Button 
-              className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 hover:from-pink-600 hover:via-purple-600 hover:to-pink-700 text-white font-bold py-4 rounded-2xl text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 border border-white/20"
+              className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-4 rounded-2xl text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 border border-white/30"
               onClick={handleViewCatalog}
             >
               <Eye className="mr-2" size={20} />
@@ -161,9 +161,9 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
             
             {/* Decorative bottom elements */}
             <div className="flex items-center justify-center space-x-2 mt-4">
-              <div className="w-2 h-2 bg-pink-300/40 rounded-full"></div>
-              <div className="w-3 h-3 bg-purple-300/40 rounded-full"></div>
-              <div className="w-2 h-2 bg-pink-300/40 rounded-full"></div>
+              <div className="w-2 h-2 bg-white/40 rounded-full"></div>
+              <div className="w-3 h-3 bg-white/30 rounded-full"></div>
+              <div className="w-2 h-2 bg-white/40 rounded-full"></div>
             </div>
           </div>
         </div>
