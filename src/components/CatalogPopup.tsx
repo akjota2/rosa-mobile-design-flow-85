@@ -27,7 +27,7 @@ export const CatalogPopup = ({ trigger }: CatalogPopupProps) => {
       <DialogTrigger asChild>
         {trigger}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden">
+      <DialogContent className="sm:max-w-md p-0 bg-white rounded-3xl border-0 shadow-2xl overflow-hidden [&>button]:hidden">
         <div className="relative bg-gradient-to-br from-gray-50 to-white">
           {/* Subtle background decorative elements */}
           <div className="absolute top-0 left-0 w-32 h-32 bg-pink-100/30 rounded-full blur-3xl"></div>
