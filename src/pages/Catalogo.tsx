@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { VipPopup } from '@/components/VipPopup';
-import { Timer, Crown, Heart, Lock, ArrowLeft, Star, Sparkles } from 'lucide-react';
+import { Timer, Crown, Heart, Lock, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
@@ -42,10 +42,6 @@ const Catalogo = () => {
     } else {
       navigate(`/modelo/${profileName}`);
     }
-  };
-
-  const handleButtonClick = (profileName: string) => {
-    navigate(`/modelo/${profileName}`);
   };
 
   return (
@@ -88,7 +84,7 @@ const Catalogo = () => {
           {profiles.map((profile, index) => (
             <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
               <div 
-                className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer mb-3"
+                className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
                 style={{
                   backgroundImage: `url(${profile.image})`,
                   backgroundSize: 'cover',
@@ -132,33 +128,6 @@ const Catalogo = () => {
                   <Heart className="text-white" size={20} />
                 </div>
               </div>
-
-              {/* Sophisticated Buttons */}
-              {profile.isVip ? (
-                <button
-                  onClick={() => handleButtonClick(profile.name)}
-                  className="w-full relative overflow-hidden bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 text-white font-bold py-3 px-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border border-white/20"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                  <div className="relative flex items-center justify-center space-x-2">
-                    <Crown size={16} className="text-yellow-300" />
-                    <span className="text-sm font-extrabold tracking-wide">ACESSO VIP</span>
-                    <Sparkles size={14} className="text-yellow-300 animate-pulse" />
-                  </div>
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
-              ) : (
-                <button
-                  onClick={() => handleButtonClick(profile.name)}
-                  className="w-full relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-white/10"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 transform -skew-x-12 -translate-x-full hover:translate-x-full transition-transform duration-700"></div>
-                  <div className="relative flex items-center justify-center space-x-2">
-                    <Star size={16} className="text-blue-200" />
-                    <span className="text-sm font-bold tracking-wide">VER PACKS</span>
-                  </div>
-                </button>
-              )}
             </div>
           ))}
         </div>
