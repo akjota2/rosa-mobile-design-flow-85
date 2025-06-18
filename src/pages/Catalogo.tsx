@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -12,6 +11,11 @@ const Catalogo = () => {
   const [timeLeft, setTimeLeft] = useState(10);
   const [showVipPopup, setShowVipPopup] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   const originalProfiles = [
     { name: 'Lari', age: 22, size: 35, image: '/lovable-uploads/886901b9-857e-4d70-95ed-bba29ce2748a.png', isVip: true, isBlurred: true },

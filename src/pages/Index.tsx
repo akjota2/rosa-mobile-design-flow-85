@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Header } from '@/components/Header';
@@ -14,6 +15,11 @@ const Index = () => {
   const [userType, setUserType] = useState<'modelo' | 'admirador' | null>(null);
   const [showBackRedirectPopup, setShowBackRedirectPopup] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Header } from '@/components/Header';
@@ -12,6 +11,11 @@ const ModelProfile = () => {
   const navigate = useNavigate();
   const [showVipPopup, setShowVipPopup] = useState(false);
 
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   const profiles = [
     { name: 'Lari', age: 22, size: 35, image: '/lovable-uploads/886901b9-857e-4d70-95ed-bba29ce2748a.png', isVip: true },
     { name: 'Ju', age: 24, size: 37, image: '/lovable-uploads/95f639f1-5e1b-460e-872e-133690efaad5.png', isVip: false },
@@ -20,7 +24,7 @@ const ModelProfile = () => {
     { name: 'Mari', age: 25, size: 35, image: '/lovable-uploads/198e52e0-675a-47be-b5ea-b6b417e15d15.png', isVip: true },
     { name: 'Bianca', age: 21, size: 34, image: '/lovable-uploads/5d3b86d2-dbd3-42d6-bad3-5fd9529b0a78.png', isVip: false },
     { name: 'Gabi', age: 23, size: 36, image: '/lovable-uploads/a17b990f-dd9d-413b-bb48-03cd407fc798.png', isVip: true },
-    { name: 'Luna', age: 22, size: 37, image: '/lovable-uploads/5d3b86d2-dbd3-42d6-bad3-5fd9529b0a78.png', isVip: false },
+    { name: 'Luna', age: 22, size: 37, image: '/lovable-uploads/9d336adb-200c-496a-9ec4-4204bd1d2717.png', isVip: false },
   ];
 
   const profile = profiles.find(p => p.name === name);
