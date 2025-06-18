@@ -43,6 +43,14 @@ const Catalogo = () => {
     navigate(-1);
   };
 
+  const handleProfileClick = (profileName: string, isVip: boolean) => {
+    if (isVip) {
+      setShowVipPopup(true);
+    } else {
+      navigate(`/modelo/${profileName.toLowerCase()}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-pink-50">
       <Header />
@@ -83,13 +91,14 @@ const Catalogo = () => {
           {shuffledProfiles.map((profile, index) => (
             <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
               <div 
-                className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
                 style={{
                   backgroundImage: `url(${profile.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   filter: profile.isBlurred ? 'blur(8px)' : 'none'
                 }}
+                onClick={() => handleProfileClick(profile.name, profile.isVip)}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
               </div>
@@ -106,7 +115,7 @@ const Catalogo = () => {
 
               {/* Lock Icon for blurred images */}
               {profile.isBlurred && (
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
                     <Lock className="text-white" size={28} />
                   </div>
@@ -114,7 +123,7 @@ const Catalogo = () => {
               )}
 
               {/* Profile Info */}
-              <div className="absolute bottom-3 left-3 text-white">
+              <div className="absolute bottom-3 left-3 text-white pointer-events-none">
                 <p className="font-bold text-lg drop-shadow-lg">{profile.name}, {profile.age}</p>
                 <p className="text-sm flex items-center drop-shadow-lg">
                   <Heart className="text-pink-400 mr-1" size={14} />
@@ -123,18 +132,9 @@ const Catalogo = () => {
               </div>
 
               {/* Heart Icon */}
-              <div className="absolute bottom-3 right-3">
+              <div className="absolute bottom-3 right-3 pointer-events-none">
                 <Heart className="text-white" size={20} />
               </div>
-
-              {/* VIP Access Button for VIP profiles */}
-              {profile.isVip && (
-                <VipPopup
-                  trigger={
-                    <button className="absolute inset-0 w-full h-full bg-transparent" />
-                  }
-                />
-              )}
             </div>
           ))}
         </div>
