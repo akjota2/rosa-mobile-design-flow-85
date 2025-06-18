@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { VipPopup } from '@/components/VipPopup';
-import { ArrowLeft, Heart, MessageCircle, Lock, Crown, Star } from 'lucide-react';
+import { ArrowLeft, Heart, MessageCircle, Lock, Crown, Star, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const ModelProfile = () => {
@@ -34,7 +34,7 @@ const ModelProfile = () => {
   };
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   return (
@@ -74,11 +74,11 @@ const ModelProfile = () => {
           <h1 className="text-2xl font-bold text-gray-900 mb-1">{profile.name}</h1>
           
           <div className="flex justify-center space-x-4 mb-4">
-            <div className="bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-bold flex items-center">
+            <div className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold flex items-center">
               <Heart size={14} className="mr-1" />
               {profile.age} anos
             </div>
-            <div className="bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+            <div className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
               ♥ {profile.size}
             </div>
           </div>
@@ -92,14 +92,14 @@ const ModelProfile = () => {
           {/* Action Buttons */}
           <div className="flex space-x-4 mb-6">
             <Button 
-              className="flex-1 bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 rounded-xl"
+              className="flex-1 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-xl"
               onClick={handleVipAction}
             >
               <Star size={16} className="mr-2" />
               70+ Fotos
             </Button>
             <Button 
-              className="flex-1 bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 rounded-xl"
+              className="flex-1 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-xl"
               onClick={handleVipAction}
             >
               <Crown size={16} className="mr-2" />
@@ -108,7 +108,7 @@ const ModelProfile = () => {
           </div>
 
           <Button 
-            className="w-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 rounded-xl mb-6"
+            className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-xl mb-6"
             onClick={handleVipAction}
           >
             Chat Privado
@@ -119,7 +119,7 @@ const ModelProfile = () => {
         <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-gray-900 flex items-center">
-              <Crown className="text-primary-500 mr-2" size={20} />
+              <Crown className="text-pink-500 mr-2" size={20} />
               Conteúdo Exclusivo
             </h3>
             <div className="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold">
@@ -152,7 +152,7 @@ const ModelProfile = () => {
           </div>
 
           <Button 
-            className="w-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 rounded-xl"
+            className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-xl"
             onClick={handleVipAction}
           >
             <Crown size={16} className="mr-2" />
@@ -161,10 +161,10 @@ const ModelProfile = () => {
         </div>
 
         {/* Chat Section */}
-        <div className="bg-primary-500 rounded-2xl p-4">
-          <div className="flex items-center space-x-3 mb-4">
+        <div className="bg-gradient-to-r from-pink-500 to-pink-600 rounded-t-2xl p-4 mb-0">
+          <div className="flex items-center space-x-3">
             <div 
-              className="w-10 h-10 rounded-full overflow-hidden"
+              className="w-12 h-12 rounded-full overflow-hidden border-2 border-white"
               style={{
                 backgroundImage: `url(${profile.image})`,
                 backgroundSize: 'cover',
@@ -172,29 +172,39 @@ const ModelProfile = () => {
               }}
             />
             <div>
-              <p className="text-white font-bold">{profile.name}</p>
-              <p className="text-white/80 text-sm">Online</p>
+              <p className="text-white font-bold text-lg">{profile.name}</p>
+              <p className="text-white/90 text-sm">Online</p>
             </div>
           </div>
         </div>
 
+        {/* Chat Messages Area */}
+        <div className="bg-white min-h-[200px] px-4 py-4 border-l border-r border-gray-200">
+          {/* Chat messages would go here */}
+        </div>
+
         {/* Message Input */}
-        <div className="fixed bottom-4 left-4 right-4 max-w-md mx-auto">
-          <div className="flex items-center space-x-2 bg-white rounded-full shadow-lg p-2">
+        <div className="bg-white rounded-b-2xl border border-gray-200 p-4">
+          <div className="flex items-center space-x-3">
             <input 
               type="text" 
               placeholder="Digite sua mensagem..."
-              className="flex-1 px-4 py-2 rounded-full border-none outline-none"
+              className="flex-1 px-4 py-3 bg-gray-100 rounded-full border-none outline-none text-gray-700 placeholder-gray-500"
               onClick={handleVipAction}
             />
             <Button 
               size="icon"
-              className="bg-primary-500 hover:bg-primary-600 rounded-full"
+              className="bg-pink-500 hover:bg-pink-600 rounded-full w-12 h-12"
               onClick={handleVipAction}
             >
-              <MessageCircle size={20} />
+              <Send size={20} />
             </Button>
           </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-6 bg-gradient-to-r from-pink-500 to-pink-600 text-white text-center py-4 rounded-2xl">
+          <p className="font-bold text-lg">ADQUIRA O APP E TENHA ACESSO A TODO CONTEÚDO</p>
         </div>
       </div>
 
