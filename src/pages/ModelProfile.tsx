@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Header } from '@/components/Header';
@@ -184,11 +183,6 @@ const ModelProfile = () => {
             <div className="flex justify-start">
               <div className="bg-gray-100 rounded-2xl px-4 py-2 max-w-[80%]">
                 <p className="text-gray-800 text-sm">Oi! Como você está? 😊</p>
-              </div>
-            </div>
-            <div className="flex justify-end">
-              <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white rounded-2xl px-4 py-2 max-w-[80%]">
-                <p className="text-sm">Olá! Tudo bem e você?</p>
               </div>
             </div>
           </div>

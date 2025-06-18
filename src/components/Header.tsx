@@ -6,7 +6,7 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white/95 backdrop-blur-lg border-b border-gray-200/50 sticky top-0 z-50 shadow-sm">
+    <header className="bg-gradient-to-r from-primary-500 to-pink-600 backdrop-blur-lg border-b border-pink-200/50 sticky top-0 z-50 shadow-sm">
       <div className="max-w-md mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
@@ -19,36 +19,36 @@ export const Header = () => {
           
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-3 rounded-xl hover:bg-gradient-to-r hover:from-primary-50 hover:to-pink-50 transition-all duration-300 transform hover:scale-105"
+            className="p-3 rounded-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 text-white"
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
         
         {isMenuOpen && (
-          <div className="mt-6 pb-6 border-t border-gray-200/50 pt-6 animate-fade-in">
+          <div className="mt-6 pb-6 border-t border-white/30 pt-6 animate-fade-in">
             <nav className="space-y-4">
               <a 
                 href="#" 
-                className="block px-4 py-3 text-gray-700 hover:text-primary-500 hover:bg-gradient-to-r hover:from-primary-50 hover:to-pink-50 rounded-xl transition-all duration-300 font-medium"
+                className="block px-4 py-3 text-white hover:text-white hover:bg-white/20 rounded-xl transition-all duration-300 font-medium"
               >
                 Início
               </a>
               <a 
                 href="#" 
-                className="block px-4 py-3 text-gray-700 hover:text-primary-500 hover:bg-gradient-to-r hover:from-primary-50 hover:to-pink-50 rounded-xl transition-all duration-300 font-medium"
+                className="block px-4 py-3 text-white hover:text-white hover:bg-white/20 rounded-xl transition-all duration-300 font-medium"
               >
                 Modelos
               </a>
               <a 
                 href="#" 
-                className="block px-4 py-3 text-gray-700 hover:text-primary-500 hover:bg-gradient-to-r hover:from-primary-50 hover:to-pink-50 rounded-xl transition-all duration-300 font-medium"
+                className="block px-4 py-3 text-white hover:text-white hover:bg-white/20 rounded-xl transition-all duration-300 font-medium"
               >
                 Admiradores
               </a>
               <a 
                 href="#" 
-                className="block px-4 py-3 text-gray-700 hover:text-primary-500 hover:bg-gradient-to-r hover:from-primary-50 hover:to-pink-50 rounded-xl transition-all duration-300 font-medium"
+                className="block px-4 py-3 text-white hover:text-white hover:bg-white/20 rounded-xl transition-all duration-300 font-medium"
               >
                 FAQ
               </a>

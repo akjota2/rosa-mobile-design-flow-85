@@ -111,7 +111,6 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
               className="w-full bg-gradient-to-r from-primary-500 to-pink-600 hover:from-primary-600 hover:to-pink-700 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 mb-4"
               onClick={handleClose}
             >
-              <Crown className="mr-2" size={20} />
               QUERO O ACESSO VIP
             </Button>
 
