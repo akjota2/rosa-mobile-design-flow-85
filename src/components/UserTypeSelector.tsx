@@ -14,8 +14,12 @@ export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProp
   const [showModelOnboarding, setShowModelOnboarding] = useState(false);
 
   const handleModelClick = () => {
-    setShowModelOnboarding(false); // Fecha primeiro se estiver aberto
-    setTimeout(() => setShowModelOnboarding(true), 100); // Reabre para resetar o fluxo
+    // Sempre fecha e reabre para garantir que reinicie do zero
+    setShowModelOnboarding(false);
+    // Pequeno delay para garantir que o estado seja resetado
+    setTimeout(() => {
+      setShowModelOnboarding(true);
+    }, 150);
   };
 
   return (

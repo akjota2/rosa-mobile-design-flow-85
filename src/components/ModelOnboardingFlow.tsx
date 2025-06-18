@@ -156,16 +156,26 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
       buttonText: "Entendi"
     },
 
-    // Popup 5 - Ganhos Reais (redesigned chat)
+    // Popup 5 - Ganhos Reais (com nova imagem)
     {
       icon: <Heart className="text-white" size={32} />,
       iconBg: "from-pink-500 to-red-500",
       title: "Ganhos Reais",
       content: (
         <div className="space-y-4">
-          <p className="text-center text-gray-600 text-sm mb-4">
-            Exemplo de resultado de uma modelo <span className="font-semibold text-primary-600">@alessandravid_</span>
-          </p>
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+              <img 
+                src="/lovable-uploads/7dd0d010-2f98-4a58-90f5-91a13f3a0230.png" 
+                alt="Modelo de sucesso" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="text-left">
+              <p className="text-gray-700 font-semibold">Resultado real da modelo</p>
+              <p className="text-gray-500 text-sm">@luna_model</p>
+            </div>
+          </div>
           
           {/* Chat simulado mais compacto */}
           <div className="bg-gray-900 rounded-2xl p-4 space-y-2">
@@ -173,8 +183,8 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
             <div className="flex items-start space-x-3">
               <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src="/lovable-uploads/e01f3879-b106-442d-a751-04ca76e66e63.png" 
-                  alt="Avatar Alessandra" 
+                  src="/lovable-uploads/7dd0d010-2f98-4a58-90f5-91a13f3a0230.png" 
+                  alt="Avatar Luna" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -194,8 +204,8 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
             <div className="flex items-start space-x-3">
               <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src="/lovable-uploads/e01f3879-b106-442d-a751-04ca76e66e63.png" 
-                  alt="Avatar Alessandra" 
+                  src="/lovable-uploads/7dd0d010-2f98-4a58-90f5-91a13f3a0230.png" 
+                  alt="Avatar Luna" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -211,8 +221,8 @@ export const ModelOnboardingFlow = ({ isOpen, onClose }: ModelOnboardingFlowProp
             <div className="flex items-start space-x-3">
               <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src="/lovable-uploads/e01f3879-b106-442d-a751-04ca76e66e63.png" 
-                  alt="Avatar Alessandra" 
+                  src="/lovable-uploads/7dd0d010-2f98-4a58-90f5-91a13f3a0230.png" 
+                  alt="Avatar Luna" 
                   className="w-full h-full object-cover"
                 />
               </div>
