@@ -56,10 +56,9 @@ const Catalogo = () => {
   }, [timeLeft]);
 
   const handleGoBack = () => {
+    // Store flag in sessionStorage to show popup on homepage
+    sessionStorage.setItem('showBackRedirectPopup', 'true');
     navigate('/');
-    setTimeout(() => {
-      setShowBackRedirectPopup(true);
-    }, 100);
   };
 
   const handleProfileClick = (profileName: string, isVip: boolean) => {
