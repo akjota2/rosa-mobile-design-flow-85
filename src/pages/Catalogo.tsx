@@ -43,6 +43,14 @@ const Catalogo = () => {
     navigate(-1);
   };
 
+  const handleProfileClick = (profileName: string, isVip: boolean) => {
+    if (isVip) {
+      setShowVipPopup(true);
+    } else {
+      navigate(`/modelo/${profileName}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-pink-50">
       <Header />
@@ -83,13 +91,14 @@ const Catalogo = () => {
           {shuffledProfiles.map((profile, index) => (
             <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
               <div 
-                className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="w-full h-48 rounded-2xl overflow-hidden relative shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
                 style={{
                   backgroundImage: `url(${profile.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   filter: profile.isBlurred ? 'blur(8px)' : 'none'
                 }}
+                onClick={() => handleProfileClick(profile.name, profile.isVip)}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
               </div>
@@ -97,7 +106,7 @@ const Catalogo = () => {
               {/* VIP Badge */}
               {profile.isVip && (
                 <div className="absolute top-3 right-3">
-                  <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
+                  <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg flex items-center space-x-1">
                     <Crown size={12} />
                     <span>VIP</span>
                   </div>
@@ -126,15 +135,6 @@ const Catalogo = () => {
               <div className="absolute bottom-3 right-3">
                 <Heart className="text-white" size={20} />
               </div>
-
-              {/* VIP Access Button for VIP profiles */}
-              {profile.isVip && (
-                <VipPopup
-                  trigger={
-                    <button className="absolute inset-0 w-full h-full bg-transparent" />
-                  }
-                />
-              )}
             </div>
           ))}
         </div>
@@ -143,7 +143,7 @@ const Catalogo = () => {
         <div className="mt-8 text-center animate-fade-in">
           <VipPopup
             trigger={
-              <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+              <button className="w-full bg-gradient-to-r from-primary-500 to-pink-600 hover:from-primary-600 hover:to-pink-700 text-white font-bold py-4 rounded-2xl text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
                 <Crown size={20} />
                 <span>ACESSO VIP COMPLETO</span>
               </button>
