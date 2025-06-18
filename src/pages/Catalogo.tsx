@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { VipPopup } from '@/components/VipPopup';
+import { BackRedirectPopup } from '@/components/BackRedirectPopup';
 import { Timer, Crown, Heart, Lock, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 const Catalogo = () => {
   const [timeLeft, setTimeLeft] = useState(10);
   const [showVipPopup, setShowVipPopup] = useState(false);
+  const [showBackRedirectPopup, setShowBackRedirectPopup] = useState(false);
   const navigate = useNavigate();
 
   const originalProfiles = [
@@ -55,7 +56,7 @@ const Catalogo = () => {
   }, [timeLeft]);
 
   const handleGoBack = () => {
-    navigate('/');
+    setShowBackRedirectPopup(true);
   };
 
   const handleProfileClick = (profileName: string, isVip: boolean) => {
@@ -183,6 +184,12 @@ const Catalogo = () => {
           onClose={() => setShowVipPopup(false)}
         />
       )}
+
+      {/* Back Redirect Popup */}
+      <BackRedirectPopup 
+        isOpen={showBackRedirectPopup}
+        onClose={() => setShowBackRedirectPopup(false)}
+      />
     </div>
   );
 };
