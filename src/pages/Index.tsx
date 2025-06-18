@@ -9,6 +9,7 @@ import { FAQ } from '@/components/FAQ';
 import { Footer } from '@/components/Footer';
 import { BackRedirectPopup } from '@/components/BackRedirectPopup';
 import { IPhoneMockup } from '@/components/IPhoneMockup';
+import { ProfileCards } from '@/components/ProfileCards';
 
 const Index = () => {
   const [userType, setUserType] = useState<'modelo' | 'admirador' | null>(null);
@@ -33,6 +34,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <Header />
       <Hero />
+      <ProfileCards />
       <UserTypeSelector userType={userType} setUserType={setUserType} />
       <IPhoneMockup />
       <Features />
