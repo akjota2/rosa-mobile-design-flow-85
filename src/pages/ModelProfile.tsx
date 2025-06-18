@@ -34,7 +34,7 @@ const ModelProfile = () => {
   };
 
   const handleGoBack = () => {
-    navigate('/');
+    navigate('/catalogo');
   };
 
   return (
@@ -74,32 +74,32 @@ const ModelProfile = () => {
           <h1 className="text-2xl font-bold text-gray-900 mb-1">{profile.name}</h1>
           
           <div className="flex justify-center space-x-4 mb-4">
-            <div className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold flex items-center">
+            <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white px-4 py-1 rounded-full text-sm font-bold flex items-center">
               <Heart size={14} className="mr-1" />
               {profile.age} anos
             </div>
-            <div className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+            <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white px-4 py-1 rounded-full text-sm font-bold">
               ♥ {profile.size}
             </div>
           </div>
 
           <p className="text-gray-600 mb-6">
             Sobre mim:<br />
-            Meus pics são meu world! Sempre com urnas<br />
+            Meus pics são meu world! Sempre com umas<br />
             fotos e histórinhas.
           </p>
 
           {/* Action Buttons */}
           <div className="flex space-x-4 mb-6">
             <Button 
-              className="flex-1 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-xl"
+              className="flex-1 bg-gradient-to-r from-primary-500 to-pink-600 hover:from-primary-600 hover:to-pink-700 text-white font-bold py-3 rounded-xl"
               onClick={handleVipAction}
             >
               <Star size={16} className="mr-2" />
               70+ Fotos
             </Button>
             <Button 
-              className="flex-1 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-xl"
+              className="flex-1 bg-gradient-to-r from-primary-500 to-pink-600 hover:from-primary-600 hover:to-pink-700 text-white font-bold py-3 rounded-xl"
               onClick={handleVipAction}
             >
               <Crown size={16} className="mr-2" />
@@ -108,7 +108,7 @@ const ModelProfile = () => {
           </div>
 
           <Button 
-            className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-xl mb-6"
+            className="w-full bg-gradient-to-r from-primary-500 to-pink-600 hover:from-primary-600 hover:to-pink-700 text-white font-bold py-3 rounded-xl mb-6"
             onClick={handleVipAction}
           >
             Chat Privado
@@ -119,7 +119,7 @@ const ModelProfile = () => {
         <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-gray-900 flex items-center">
-              <Crown className="text-pink-500 mr-2" size={20} />
+              <Crown className="text-gradient bg-gradient-to-r from-primary-500 to-pink-600 mr-2" size={20} />
               Conteúdo Exclusivo
             </h3>
             <div className="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold">
@@ -152,7 +152,7 @@ const ModelProfile = () => {
           </div>
 
           <Button 
-            className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded-xl"
+            className="w-full bg-gradient-to-r from-primary-500 to-pink-600 hover:from-primary-600 hover:to-pink-700 text-white font-bold py-3 rounded-xl"
             onClick={handleVipAction}
           >
             <Crown size={16} className="mr-2" />
@@ -161,7 +161,7 @@ const ModelProfile = () => {
         </div>
 
         {/* Chat Section */}
-        <div className="bg-gradient-to-r from-pink-500 to-pink-600 rounded-t-2xl p-4 mb-0">
+        <div className="bg-gradient-to-r from-primary-500 to-pink-600 rounded-t-2xl p-4 mb-0">
           <div className="flex items-center space-x-3">
             <div 
               className="w-12 h-12 rounded-full overflow-hidden border-2 border-white"
@@ -180,7 +180,18 @@ const ModelProfile = () => {
 
         {/* Chat Messages Area */}
         <div className="bg-white min-h-[200px] px-4 py-4 border-l border-r border-gray-200">
-          {/* Chat messages would go here */}
+          <div className="space-y-4">
+            <div className="flex justify-start">
+              <div className="bg-gray-100 rounded-2xl px-4 py-2 max-w-[80%]">
+                <p className="text-gray-800 text-sm">Oi! Como você está? 😊</p>
+              </div>
+            </div>
+            <div className="flex justify-end">
+              <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white rounded-2xl px-4 py-2 max-w-[80%]">
+                <p className="text-sm">Olá! Tudo bem e você?</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Message Input */}
@@ -194,7 +205,7 @@ const ModelProfile = () => {
             />
             <Button 
               size="icon"
-              className="bg-pink-500 hover:bg-pink-600 rounded-full w-12 h-12"
+              className="bg-gradient-to-r from-primary-500 to-pink-600 hover:from-primary-600 hover:to-pink-700 rounded-full w-12 h-12"
               onClick={handleVipAction}
             >
               <Send size={20} />
@@ -203,7 +214,7 @@ const ModelProfile = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-6 bg-gradient-to-r from-pink-500 to-pink-600 text-white text-center py-4 rounded-2xl">
+        <div className="mt-6 bg-gradient-to-r from-primary-500 to-pink-600 text-white text-center py-4 rounded-2xl">
           <p className="font-bold text-lg">ADQUIRA O APP E TENHA ACESSO A TODO CONTEÚDO</p>
         </div>
       </div>
