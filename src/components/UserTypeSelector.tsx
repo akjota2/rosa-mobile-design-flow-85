@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { CatalogPopup } from './CatalogPopup';
 
 interface UserTypeSelectorProps {
   userType: 'modelo' | 'admirador' | null;
@@ -10,99 +11,121 @@ export const UserTypeSelector = ({ userType, setUserType }: UserTypeSelectorProp
   const [selectedType, setSelectedType] = useState<'modelo' | 'admirador'>('modelo');
 
   return (
-    <section className="py-12 px-4 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-md mx-auto text-center">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Uma plataforma onde admiradores e modelos se conectam diretamente
+    <section className="py-16 px-4 bg-gradient-to-br from-gray-50 via-white to-pink-50 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-primary-200/30 to-primary-300/20 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-pink-200/30 to-purple-200/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+      
+      <div className="max-w-md mx-auto text-center relative z-10">
+        <h2 className="text-3xl font-bold text-gray-900 mb-3 animate-fade-in">
+          Uma plataforma onde{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-pink-600">
+            admiradores
+          </span>{' '}
+          e{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-pink-600">
+            modelos
+          </span>{' '}
+          se conectam diretamente
         </h2>
         
-        <div className="flex rounded-full bg-gray-100 p-1 mb-8 max-w-xs mx-auto">
+        <div className="flex rounded-full bg-gradient-to-r from-gray-100 to-gray-50 p-1 mb-10 max-w-xs mx-auto shadow-lg animate-scale-in">
           <button
             onClick={() => setSelectedType('admirador')}
-            className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-all ${
+            className={`flex-1 py-3 px-6 rounded-full text-sm font-bold transition-all duration-300 transform ${
               selectedType === 'admirador'
-                ? 'bg-primary-500 text-white shadow-md'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-gradient-to-r from-primary-500 to-pink-500 text-white shadow-xl scale-105'
+                : 'text-gray-600 hover:text-gray-900 hover:scale-105'
             }`}
           >
             ADMIRADOR
           </button>
           <button
             onClick={() => setSelectedType('modelo')}
-            className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-all ${
+            className={`flex-1 py-3 px-6 rounded-full text-sm font-bold transition-all duration-300 transform ${
               selectedType === 'modelo'
-                ? 'bg-primary-500 text-white shadow-md'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-gradient-to-r from-primary-500 to-pink-500 text-white shadow-xl scale-105'
+                : 'text-gray-600 hover:text-gray-900 hover:scale-105'
             }`}
           >
             MODELO
           </button>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 animate-fade-in">
-          <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span className="text-white text-2xl">
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 animate-fade-in border border-white/50">
+          <div className="w-20 h-20 bg-gradient-to-br from-primary-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg animate-scale-in">
+            <span className="text-white text-3xl">
               {selectedType === 'modelo' ? '👤' : '👁'}
             </span>
           </div>
           
-          <h3 className="text-xl font-bold text-gray-900 mb-2">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3">
             {selectedType === 'modelo' ? 'Seja uma Modelo' : 'Seja um Admirador'}
           </h3>
           
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-8 text-lg">
             {selectedType === 'modelo' ? 'Monetize seu conteúdo' : 'Acesse conteúdo exclusivo'}
           </p>
           
-          <div className="space-y-4 mb-8">
+          <div className="space-y-6 mb-10">
             {selectedType === 'modelo' ? (
               <>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <span className="text-primary-500">💰</span>
+                <div className="flex items-center space-x-4 animate-fade-in">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-pink-100 rounded-full flex items-center justify-center shadow-md">
+                    <span className="text-primary-500 text-xl">💰</span>
                   </div>
-                  <span className="text-gray-700">Lucro diário com conteúdo especial</span>
+                  <span className="text-gray-700 font-medium">Lucro diário com conteúdo especial</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <span className="text-primary-500">📊</span>
+                <div className="flex items-center space-x-4 animate-fade-in delay-100">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-pink-100 rounded-full flex items-center justify-center shadow-md">
+                    <span className="text-primary-500 text-xl">📊</span>
                   </div>
-                  <span className="text-gray-700">Você escolhe quanto mostrar e quanto cobrar</span>
+                  <span className="text-gray-700 font-medium">Você escolhe quanto mostrar e quanto cobrar</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <span className="text-primary-500">🔒</span>
+                <div className="flex items-center space-x-4 animate-fade-in delay-200">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-pink-100 rounded-full flex items-center justify-center shadow-md">
+                    <span className="text-primary-500 text-xl">🔒</span>
                   </div>
-                  <span className="text-gray-700">Grupo fechado, seguro e anônimo</span>
+                  <span className="text-gray-700 font-medium">Grupo fechado, seguro e anônimo</span>
                 </div>
               </>
             ) : (
               <>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <span className="text-primary-500">👁</span>
+                <div className="flex items-center space-x-4 animate-fade-in">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-pink-100 rounded-full flex items-center justify-center shadow-md">
+                    <span className="text-primary-500 text-xl">👁</span>
                   </div>
-                  <span className="text-gray-700">Perfis femininos reais, sem censura</span>
+                  <span className="text-gray-700 font-medium">Perfis femininos reais, sem censura</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <span className="text-primary-500">🎯</span>
+                <div className="flex items-center space-x-4 animate-fade-in delay-100">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-pink-100 rounded-full flex items-center justify-center shadow-md">
+                    <span className="text-primary-500 text-xl">🎯</span>
                   </div>
-                  <span className="text-gray-700">Preferências atendidas no sigilo</span>
+                  <span className="text-gray-700 font-medium">Preferências atendidas no sigilo</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <span className="text-primary-500">✨</span>
+                <div className="flex items-center space-x-4 animate-fade-in delay-200">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-pink-100 rounded-full flex items-center justify-center shadow-md">
+                    <span className="text-primary-500 text-xl">✨</span>
                   </div>
-                  <span className="text-gray-700">Novas modelos toda semana</span>
+                  <span className="text-gray-700 font-medium">Novas modelos toda semana</span>
                 </div>
               </>
             )}
           </div>
           
-          <button className="w-full bg-primary-500 text-white py-3 px-6 rounded-xl font-semibold hover:bg-primary-600 transition-colors shadow-lg hover:shadow-xl">
-            {selectedType === 'modelo' ? '💰 QUERO LUCRAR' : '❤️ QUERO ADMIRAR'}
-          </button>
+          {selectedType === 'modelo' ? (
+            <button className="w-full bg-gradient-to-r from-primary-500 to-pink-500 text-white py-4 px-6 rounded-2xl font-bold text-lg hover:from-primary-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+              💰 QUERO LUCRAR
+            </button>
+          ) : (
+            <CatalogPopup
+              trigger={
+                <button className="w-full bg-gradient-to-r from-primary-500 to-pink-500 text-white py-4 px-6 rounded-2xl font-bold text-lg hover:from-primary-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+                  ❤️ QUERO ADMIRAR
+                </button>
+              }
+            />
+          )}
         </div>
       </div>
     </section>
