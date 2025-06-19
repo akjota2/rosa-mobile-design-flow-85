@@ -1,6 +1,4 @@
 
-
-
 export const Hero = () => {
   return (
     <section className="relative py-8 md:py-16 px-4 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-pink-50">
@@ -9,31 +7,70 @@ export const Hero = () => {
       <div className="absolute bottom-20 right-10 w-16 h-16 bg-gradient-to-tl from-purple-200/30 to-primary-200/40 rounded-full blur-xl animate-pulse delay-1000"></div>
       <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-gradient-to-r from-pink-300/20 to-primary-300/20 rounded-full blur-lg animate-pulse delay-500"></div>
       
-      <div className="relative max-w-md mx-auto text-center z-10">
-        {/* Copy agressiva inspirada na imagem */}
-        <div className="mb-6 md:mb-8 bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-xl p-4 md:p-6 border border-white/50">
-          {/* Ícone de coração como na imagem */}
-          <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg">
-            <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <div className="relative max-w-sm mx-auto text-center z-10">
+        {/* Main content card */}
+        <div className="bg-white rounded-3xl shadow-2xl p-6 mb-6 border border-gray-100">
+          {/* Heart icon */}
+          <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
             </svg>
           </div>
           
-          <h1 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 leading-tight">
-            Já são <span className="text-pink-500 font-extrabold">+12 mil mulheres</span> lucrando
-            <br />com fotos simples e anônimas.
+          {/* Main headline */}
+          <h1 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">
+            Já são <span className="text-pink-500 font-extrabold">+12 mil mulheres</span>
           </h1>
+          <h2 className="text-xl font-bold text-gray-900 mb-4 leading-tight">
+            lucrando<br />
+            com fotos simples e<br />
+            anônimas.
+          </h2>
           
-          <p className="text-gray-600 text-sm mb-4">
-            <span className="text-pink-500 font-semibold">Você posta. Eles pagam. O dinheiro cai.</span>
+          {/* Subtitle */}
+          <p className="text-pink-500 font-semibold text-base mb-8">
+            Você posta. Eles pagam. O dinheiro cai.
           </p>
+          
+          {/* Statistics */}
+          <div className="grid grid-cols-3 gap-4 mb-6">
+            <div className="text-center">
+              <div className="w-8 h-8 mx-auto mb-2 flex items-center justify-center">
+                <svg className="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <div className="text-xl font-bold text-gray-900">12k+</div>
+              <div className="text-sm text-gray-600">Modelos</div>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-8 h-8 mx-auto mb-2 flex items-center justify-center">
+                <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <div className="text-xl font-bold text-gray-900">R$ 2M+</div>
+              <div className="text-sm text-gray-600">Pagos</div>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-8 h-8 mx-auto mb-2 flex items-center justify-center">
+                <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="text-xl font-bold text-gray-900">100%</div>
+              <div className="text-sm text-gray-600">Seguro</div>
+            </div>
+          </div>
         </div>
 
-        {/* Vídeo */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 animate-fade-in delay-200 border border-white/50">
-          <div className="aspect-video bg-black rounded-xl md:rounded-2xl mb-4 md:mb-6 relative overflow-hidden shadow-xl">
+        {/* Video section */}
+        <div className="bg-white rounded-3xl shadow-2xl p-6 border border-gray-100">
+          <div className="aspect-video bg-black rounded-2xl mb-4 relative overflow-hidden shadow-xl">
             <video 
-              className="w-full h-full object-cover rounded-xl md:rounded-2xl"
+              className="w-full h-full object-cover rounded-2xl"
               controls
               preload="metadata"
               poster=""
@@ -42,10 +79,19 @@ export const Hero = () => {
               Seu navegador não suporta a reprodução de vídeo.
             </video>
           </div>
+          
+          {/* Call to action text */}
+          <div className="flex items-center justify-center space-x-2 text-gray-600 text-sm">
+            <svg className="w-4 h-4 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span>Assista e descubra como começar hoje mesmo</span>
+            <svg className="w-4 h-4 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
   );
 };
-
-
