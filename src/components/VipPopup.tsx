@@ -110,7 +110,7 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
                 <Crown className="text-primary-500" size={12} />
                 <p className="text-sm sm:text-base font-bold text-gray-800">Acesso VIP</p>
               </div>
-              <p className="text-xl sm:text-2xl font-black text-primary-600 mb-1">R$ 24,90</p>
+              <p className="text-xl sm:text-2xl font-black text-green-600 mb-1">R$ 24,90</p>
               <p className="text-xs text-gray-600">Valor promocional</p>
             </div>
 

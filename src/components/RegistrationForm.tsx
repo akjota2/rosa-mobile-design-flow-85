@@ -100,15 +100,16 @@ export const RegistrationForm = () => {
     setShowSuggestions(false);
   };
 
-  // Verificar se as senhas são iguais
+  // Verificar se as senhas são iguais e se a senha tem pelo menos 6 caracteres
+  const senhaValida = formData.senha.length >= 6;
   const senhasIguais = formData.senha === formData.confirmarSenha;
   const podeEnviar = formData.nome && formData.email && 
     formData.senha && formData.confirmarSenha && formData.idade && 
-    formData.cidade && senhasIguais;
+    formData.cidade && senhaValida && senhasIguais;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!senhasIguais) {
+    if (!senhaValida || !senhasIguais) {
       return;
     }
     console.log('Form submitted:', formData);
@@ -269,10 +270,15 @@ export const RegistrationForm = () => {
                       placeholder="Mínimo 6 caracteres"
                       value={formData.senha}
                       onChange={handleInputChange}
-                      className="pl-10 h-10 md:h-12 rounded-xl border-gray-200 focus:border-primary-400"
+                      className={`pl-10 h-10 md:h-12 rounded-xl border-gray-200 focus:border-primary-400 ${
+                        formData.senha && !senhaValida ? 'border-red-400 focus:border-red-400' : ''
+                      }`}
                       required
                     />
                   </div>
+                  {formData.senha && !senhaValida && (
+                    <p className="text-red-500 text-sm">A senha deve ter pelo menos 6 caracteres</p>
+                  )}
                 </div>
                 
                 <div className="space-y-2">
@@ -287,7 +293,7 @@ export const RegistrationForm = () => {
                       value={formData.confirmarSenha}
                       onChange={handleInputChange}
                       className={`pl-10 h-10 md:h-12 rounded-xl border-gray-200 focus:border-primary-400 ${
-                        formData.confirmarSenha && !senhasIguais ? 'border-red-400 focus:border-red-400' : ''
+                        formData.confirmarSenha && (!senhasIguais || !senhaValida) ? 'border-red-400 focus:border-red-400' : ''
                       }`}
                       required
                     />
