@@ -1,4 +1,5 @@
 
+
 export const Hero = () => {
   return (
     <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-pink-50">
@@ -18,35 +19,13 @@ export const Hero = () => {
           </div>
           
           <h1 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">
-            Descubra o <span className="text-pink-500 font-extrabold">Dinheiro</span> que
-            <br />você procura
+            Já são <span className="text-pink-500 font-extrabold">+12 mil mulheres</span> lucrando
+            <br />com fotos simples e anônimas.
           </h1>
           
           <p className="text-gray-600 text-sm mb-4">
-            ou <span className="text-pink-500 font-semibold">Ganhe</span> com o interesse que eles têm.
+            Você posta. Eles pagam. <span className="text-pink-500 font-semibold">O dinheiro cai.</span>
           </p>
-          
-          <div className="bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-2xl p-4 mb-4">
-            <p className="font-bold text-lg mb-2">💰 PARE DE DESPERDIÇAR SEU POTENCIAL!</p>
-            <p className="text-sm font-medium">
-              Milhares de mulheres já estão faturando R$ 3.000+ por mês vendendo fotos dos pés!
-            </p>
-          </div>
-          
-          <div className="space-y-2 text-left">
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-              <p className="text-sm font-medium text-gray-700">✨ Sem mostrar o rosto</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-              <p className="text-sm font-medium text-gray-700">🏠 Trabalhe de casa</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-              <p className="text-sm font-medium text-gray-700">💸 Ganhe até R$ 500 por foto</p>
-            </div>
-          </div>
         </div>
 
         {/* Vídeo */}
@@ -77,3 +56,4 @@ export const Hero = () => {
     </section>
   );
 };
+
