@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -7,9 +7,25 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { VipPopup } from '@/components/VipPopup';
 import { User, Mail, Phone, Lock, Calendar, MapPin } from 'lucide-react';
 
+interface Cidade {
+  id: number;
+  nome: string;
+  microrregiao: {
+    mesorregiao: {
+      UF: {
+        sigla: string;
+        nome: string;
+      };
+    };
+  };
+}
+
 export const RegistrationForm = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [showVipPopup, setShowVipPopup] = useState(false);
+  const [cidades, setCidades] = useState<Cidade[]>([]);
+  const [cidadeSuggestions, setCidadeSuggestions] = useState<Cidade[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -21,12 +37,49 @@ export const RegistrationForm = () => {
     estado: ''
   });
 
+  // Buscar todas as cidades do IBGE ao carregar o componente
+  useEffect(() => {
+    const fetchCidades = async () => {
+      try {
+        const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/municipios');
+        const data = await response.json();
+        setCidades(data);
+      } catch (error) {
+        console.error('Erro ao buscar cidades:', error);
+      }
+    };
+
+    fetchCidades();
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+
+    // Filtrar cidades conforme o usuário digita
+    if (name === 'cidade' && value.length >= 2) {
+      const filtered = cidades
+        .filter(cidade => 
+          cidade.nome.toLowerCase().includes(value.toLowerCase())
+        )
+        .slice(0, 10); // Limitar a 10 sugestões
+      setCidadeSuggestions(filtered);
+      setShowSuggestions(true);
+    } else if (name === 'cidade') {
+      setShowSuggestions(false);
+    }
+  };
+
+  const handleCidadeSelect = (cidade: Cidade) => {
+    setFormData(prev => ({
+      ...prev,
+      cidade: cidade.nome,
+      estado: cidade.microrregiao.mesorregiao.UF.sigla
+    }));
+    setShowSuggestions(false);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -171,23 +224,48 @@ export const RegistrationForm = () => {
                       </div>
                     </div>
                     
-                    <div className="space-y-2">
+                    <div className="space-y-2 relative">
                       <Label htmlFor="cidade" className="text-gray-700 font-medium">Cidade</Label>
                       <div className="relative">
-                        <MapPin className="absolute left-3 top-3 text-gray-400" size={18} />
+                        <MapPin className="absolute left-3 top-3 text-gray-400 z-10" size={18} />
                         <Input
                           id="cidade"
                           name="cidade"
                           type="text"
-                          placeholder="São Paulo"
+                          placeholder="Digite sua cidade"
                           value={formData.cidade}
                           onChange={handleInputChange}
                           className="pl-10 h-12 rounded-xl border-gray-200 focus:border-primary-400"
                           required
+                          autoComplete="off"
                         />
+                        {showSuggestions && cidadeSuggestions.length > 0 && (
+                          <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto">
+                            {cidadeSuggestions.map((cidade) => (
+                              <button
+                                key={cidade.id}
+                                type="button"
+                                onClick={() => handleCidadeSelect(cidade)}
+                                className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors"
+                              >
+                                <div className="text-gray-900 font-medium">{cidade.nome}</div>
+                                <div className="text-gray-500 text-sm">{cidade.microrregiao.mesorregiao.UF.nome} - {cidade.microrregiao.mesorregiao.UF.sigla}</div>
+                              </button>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
+                  
+                  {formData.estado && (
+                    <div className="space-y-2">
+                      <Label className="text-gray-700 font-medium">Estado</Label>
+                      <div className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-700">
+                        {formData.estado}
+                      </div>
+                    </div>
+                  )}
                   
                   <div className="space-y-2">
                     <Label htmlFor="senha" className="text-gray-700 font-medium">Senha</Label>
