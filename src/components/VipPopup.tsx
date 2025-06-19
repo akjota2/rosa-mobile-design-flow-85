@@ -54,15 +54,19 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
               <Crown className="text-white" size={32} />
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-lg font-semibold text-gray-700 mb-2">
+              Para finalizar o cadastro, adquira:
+            </h2>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Acesso{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-pink-600">
                 VIP
               </span>
-            </h2>
-            <h3 className="text-xl font-semibold text-gray-700 mb-8">
-              Desbloqueie todo o conteúdo exclusivo
             </h3>
+            <h4 className="text-xl font-semibold text-gray-700 mb-8">
+              Desbloqueie todo o conteúdo exclusivo
+            </h4>
 
             <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 mb-6 shadow-lg border border-white/60">
               <div className="space-y-5">
@@ -96,13 +100,22 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white rounded-2xl p-5 mb-6 shadow-lg border border-primary-200/20">
+            <div className="bg-gradient-to-r from-primary-500 to-pink-600 text-white rounded-2xl p-5 mb-4 shadow-lg border border-primary-200/20">
               <div className="flex items-center justify-center space-x-2 mb-2">
                 <Zap className="text-white" size={16} />
                 <p className="text-sm font-bold">OFERTA LIMITADA</p>
               </div>
               <p className="text-3xl font-black mb-1">70% OFF</p>
               <p className="text-sm opacity-90">Válido apenas nas próximas 24h</p>
+            </div>
+
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 mb-6 shadow-lg border border-gray-100">
+              <div className="flex items-center justify-center space-x-2 mb-2">
+                <Crown className="text-primary-500" size={16} />
+                <p className="text-lg font-bold text-gray-800">Acesso VIP</p>
+              </div>
+              <p className="text-3xl font-black text-primary-600 mb-1">R$ 24,90</p>
+              <p className="text-sm text-gray-600">Valor promocional</p>
             </div>
 
             <Button 
