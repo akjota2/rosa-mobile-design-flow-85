@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -90,8 +89,17 @@ export const RegistrationForm = () => {
     setShowSuggestions(false);
   };
 
+  // Verificar se as senhas são iguais
+  const senhasIguais = formData.senha === formData.confirmarSenha;
+  const podeEnviar = formData.nome && formData.email && formData.telefone && 
+    formData.senha && formData.confirmarSenha && formData.idade && 
+    formData.cidade && senhasIguais;
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!senhasIguais) {
+      return;
+    }
     console.log('Form submitted:', formData);
     setShowVipPopup(true);
   };
@@ -259,18 +267,28 @@ export const RegistrationForm = () => {
                       placeholder="Confirme sua senha"
                       value={formData.confirmarSenha}
                       onChange={handleInputChange}
-                      className="pl-10 h-10 md:h-12 rounded-xl border-gray-200 focus:border-primary-400"
+                      className={`pl-10 h-10 md:h-12 rounded-xl border-gray-200 focus:border-primary-400 ${
+                        formData.confirmarSenha && !senhasIguais ? 'border-red-400 focus:border-red-400' : ''
+                      }`}
                       required
                     />
                   </div>
+                  {formData.confirmarSenha && !senhasIguais && (
+                    <p className="text-red-500 text-sm">As senhas não coincidem</p>
+                  )}
                 </div>
               </div>
               
               <Button 
                 type="submit"
-                className="w-full bg-gradient-to-r from-primary-500 to-pink-500 hover:from-primary-600 hover:to-pink-600 text-white font-bold py-3 md:py-4 rounded-xl text-base md:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                disabled={!podeEnviar}
+                className={`w-full font-bold py-3 md:py-4 rounded-xl text-base md:text-lg shadow-lg transform transition-all duration-300 ${
+                  podeEnviar 
+                    ? 'bg-gradient-to-r from-primary-500 to-pink-500 hover:from-primary-600 hover:to-pink-600 text-white hover:shadow-xl hover:scale-105' 
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
               >
-                CADASTRAR GRATUITAMENTE
+                CADASTRAR
               </Button>
             </form>
             
