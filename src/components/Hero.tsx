@@ -1,5 +1,6 @@
 
 
+
 export const Hero = () => {
   return (
     <section className="relative py-8 md:py-16 px-4 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-pink-50">
@@ -30,30 +31,21 @@ export const Hero = () => {
 
         {/* Vídeo */}
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 animate-fade-in delay-200 border border-white/50">
-          <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl md:rounded-2xl mb-4 md:mb-6 relative overflow-hidden shadow-xl">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-primary-500 to-pink-500 rounded-full flex items-center justify-center shadow-2xl animate-pulse">
-                <svg className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-            </div>
-            <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4">
-              <div className="bg-black/80 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-3 text-white text-xs md:text-sm border border-white/10">
-                <div className="flex items-center justify-between">
-                  <span className="font-medium">0:00 / 0:30</span>
-                  <div className="flex space-x-2 md:space-x-3">
-                    <button className="hover:text-primary-300 transition-colors transform hover:scale-110">🔊</button>
-                    <button className="hover:text-primary-300 transition-colors transform hover:scale-110">⛶</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="aspect-video bg-black rounded-xl md:rounded-2xl mb-4 md:mb-6 relative overflow-hidden shadow-xl">
+            <video 
+              className="w-full h-full object-cover rounded-xl md:rounded-2xl"
+              controls
+              preload="metadata"
+              poster=""
+            >
+              <source src="https://itslovefoot.space/wp-content/uploads/2025/06/VSLFOOT.mp4" type="video/mp4" />
+              Seu navegador não suporta a reprodução de vídeo.
+            </video>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
 
