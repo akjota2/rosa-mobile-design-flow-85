@@ -20,6 +20,14 @@ interface Cidade {
   };
 }
 
+// Função para normalizar texto (remover acentos e converter para minúsculo)
+const normalizeText = (text: string): string => {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+};
+
 export const RegistrationForm = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [showVipPopup, setShowVipPopup] = useState(false);
@@ -59,11 +67,12 @@ export const RegistrationForm = () => {
       [name]: value
     }));
 
-    // Filtrar cidades conforme o usuário digita
+    // Filtrar cidades conforme o usuário digita (com busca sem acentos)
     if (name === 'cidade' && value.length >= 2) {
+      const normalizedInput = normalizeText(value);
       const filtered = cidades
         .filter(cidade => 
-          cidade.nome.toLowerCase().includes(value.toLowerCase())
+          normalizeText(cidade.nome).includes(normalizedInput)
         )
         .slice(0, 10); // Limitar a 10 sugestões
       setCidadeSuggestions(filtered);
