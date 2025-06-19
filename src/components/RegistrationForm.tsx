@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -60,10 +61,20 @@ export const RegistrationForm = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    
+    // Filtrar apenas números para telefone
+    if (name === 'telefone') {
+      const numbersOnly = value.replace(/\D/g, '');
+      setFormData(prev => ({
+        ...prev,
+        [name]: numbersOnly
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
 
     // Filtrar cidades conforme o usuário digita (com busca sem acentos)
     if (name === 'cidade' && value.length >= 2) {
@@ -91,7 +102,7 @@ export const RegistrationForm = () => {
 
   // Verificar se as senhas são iguais
   const senhasIguais = formData.senha === formData.confirmarSenha;
-  const podeEnviar = formData.nome && formData.email && formData.telefone && 
+  const podeEnviar = formData.nome && formData.email && 
     formData.senha && formData.confirmarSenha && formData.idade && 
     formData.cidade && senhasIguais;
 
@@ -117,7 +128,7 @@ export const RegistrationForm = () => {
               <User className="text-white" size={20} />
             </div>
             <CardTitle className="text-xl md:text-2xl font-bold text-gray-900">
-              Cadastre-se Gratuitamente
+              Cadastre-se
             </CardTitle>
             <CardDescription className="text-gray-600 mt-2">
               Comece a faturar em poucos minutos
@@ -125,6 +136,13 @@ export const RegistrationForm = () => {
           </CardHeader>
           
           <CardContent className="p-4 md:p-8">
+            {/* Texto discreto sobre privacidade */}
+            <div className="mb-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
+              <p className="text-xs text-gray-500 text-center">
+                Preencha todas as informações para continuar. Seus dados pessoais não serão exibidos publicamente no aplicativo.
+              </p>
+            </div>
+
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div className="grid grid-cols-1 gap-4">
                 <div className="space-y-2">
@@ -162,18 +180,19 @@ export const RegistrationForm = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="telefone" className="text-gray-700 font-medium">WhatsApp</Label>
+                  <Label htmlFor="telefone" className="text-gray-700 font-medium">
+                    WhatsApp <span className="text-gray-400 font-normal">(Opcional)</span>
+                  </Label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-3 text-gray-400" size={18} />
                     <Input
                       id="telefone"
                       name="telefone"
                       type="tel"
-                      placeholder="(11) 99999-9999"
+                      placeholder="11999999999"
                       value={formData.telefone}
                       onChange={handleInputChange}
                       className="pl-10 h-10 md:h-12 rounded-xl border-gray-200 focus:border-primary-400"
-                      required
                     />
                   </div>
                 </div>
