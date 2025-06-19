@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { Crown, Star, Zap, Shield, Sparkles, CheckCircle, X } from 'lucide-react';
+import { Crown, Zap, CheckCircle, X, DollarSign, Users, Camera, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface VipPopupProps {
@@ -70,31 +69,40 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
 
             <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 mb-6 shadow-lg border border-white/60">
               <div className="space-y-5">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-pink-50 to-primary-50 rounded-xl flex items-center justify-center shadow-sm border border-pink-100/50">
-                    <Star className="text-primary-500" size={20} />
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-50 to-primary-50 rounded-xl flex items-center justify-center shadow-sm border border-pink-100/50 flex-shrink-0">
+                    <DollarSign className="text-primary-500" size={20} />
                   </div>
                   <div className="text-left">
-                    <p className="text-gray-800 font-medium">Acesso ilimitado</p>
-                    <p className="text-gray-500 text-sm">Todas as modelos disponíveis</p>
+                    <p className="text-gray-800 font-medium">Acesso Ilimitado ao Seu Lucro</p>
+                    <p className="text-gray-500 text-sm">Você decide quanto cobrar, quando postar e o que mostrar. Liberdade total</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-pink-50 to-primary-50 rounded-xl flex items-center justify-center shadow-sm border border-pink-100/50">
-                    <Shield className="text-primary-500" size={20} />
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-50 to-primary-50 rounded-xl flex items-center justify-center shadow-sm border border-pink-100/50 flex-shrink-0">
+                    <Users className="text-primary-500" size={20} />
                   </div>
                   <div className="text-left">
-                    <p className="text-gray-800 font-medium">Conteúdo exclusivo</p>
-                    <p className="text-gray-500 text-sm">Material premium sem restrições</p>
+                    <p className="text-gray-800 font-medium">Área VIP com Ganhos Maiores</p>
+                    <p className="text-gray-500 text-sm">Desbloqueie um grupo fechado de clientes premium que pagam mais por acesso exclusivo</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-pink-50 to-primary-50 rounded-xl flex items-center justify-center shadow-sm border border-pink-100/50">
-                    <Sparkles className="text-primary-500" size={20} />
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-50 to-primary-50 rounded-xl flex items-center justify-center shadow-sm border border-pink-100/50 flex-shrink-0">
+                    <Camera className="text-primary-500" size={20} />
                   </div>
                   <div className="text-left">
-                    <p className="text-gray-800 font-medium">Packs personalizados</p>
-                    <p className="text-gray-500 text-sm">Conteúdo VIP exclusivo</p>
+                    <p className="text-gray-800 font-medium">Venda de Conteúdo Exclusivo</p>
+                    <p className="text-gray-500 text-sm">Transforme cada foto ou vídeo em renda. Crie e ganhe com o que é só seu</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-50 to-primary-50 rounded-xl flex items-center justify-center shadow-sm border border-pink-100/50 flex-shrink-0">
+                    <Settings className="text-primary-500" size={20} />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-gray-800 font-medium">Material Premium, Você no Controle</p>
+                    <p className="text-gray-500 text-sm">Ofereça fotos e vídeos diferenciados — com preços que você mesma define</p>
                   </div>
                 </div>
               </div>
