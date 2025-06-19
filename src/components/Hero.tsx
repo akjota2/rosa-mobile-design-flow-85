@@ -8,28 +8,6 @@ export const Hero = () => {
       <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-gradient-to-r from-pink-300/20 to-primary-300/20 rounded-full blur-lg animate-pulse delay-500"></div>
       
       <div className="relative max-w-md mx-auto text-center z-10">
-        <div className="mb-10">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-500 to-pink-500 rounded-full mb-6 animate-scale-in shadow-2xl">
-            <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-6 animate-fade-in">
-            Descubra o{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-pink-600">
-              Prazer
-            </span>{' '}
-            que você procura
-          </h1>
-          <p className="text-xl text-gray-600 animate-fade-in delay-100">
-            ou{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-pink-600 font-bold">
-              Ganhe
-            </span>{' '}
-            com o interesse que eles têm.
-          </p>
-        </div>
-        
         <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 animate-fade-in delay-200 border border-white/50">
           <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl mb-6 relative overflow-hidden shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
