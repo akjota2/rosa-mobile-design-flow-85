@@ -30,8 +30,8 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <Header />
       <Hero />
-      <WhyChooseUs />
       <RegistrationForm />
+      <WhyChooseUs />
       <Footer />
       
       {/* Back Redirect Popup */}
