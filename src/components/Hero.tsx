@@ -1,4 +1,6 @@
 
+import { PriceSlider } from './PriceSlider';
+
 export const Hero = () => {
   return (
     <section className="relative py-8 md:py-16 px-4 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-pink-50">
@@ -67,7 +69,7 @@ export const Hero = () => {
         </div>
 
         {/* Video section */}
-        <div className="bg-white rounded-3xl shadow-2xl p-6 border border-gray-100">
+        <div className="bg-white rounded-3xl shadow-2xl p-6 border border-gray-100 mb-6">
           <div className="aspect-video bg-black rounded-2xl mb-4 relative overflow-hidden shadow-xl">
             <video 
               className="w-full h-full object-cover rounded-2xl"
@@ -91,6 +93,9 @@ export const Hero = () => {
             </svg>
           </div>
         </div>
+
+        {/* Price Slider - NEW */}
+        <PriceSlider />
       </div>
     </section>
   );
