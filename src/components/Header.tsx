@@ -6,7 +6,7 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-br from-gray-900 via-gray-800 to-black backdrop-blur-lg border-b border-gray-700/50 sticky top-0 z-50 shadow-sm">
+    <header className="bg-gradient-to-br from-primary-500 via-primary-600 to-pink-600 backdrop-blur-lg border-b border-pink-200/50 sticky top-0 z-50 shadow-sm">
       <div className="max-w-md mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
