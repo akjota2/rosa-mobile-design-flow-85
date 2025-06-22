@@ -7,6 +7,7 @@ import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { RegistrationForm } from '@/components/RegistrationForm';
 import { Footer } from '@/components/Footer';
 import { BackRedirectPopup } from '@/components/BackRedirectPopup';
+import { OnlineModelsCounter } from '@/components/OnlineModelsCounter';
 
 const Index = () => {
   const [showBackRedirectPopup, setShowBackRedirectPopup] = useState(false);
@@ -33,6 +34,9 @@ const Index = () => {
       <RegistrationForm />
       <WhyChooseUs />
       <Footer />
+      
+      {/* Online Models Counter */}
+      <OnlineModelsCounter />
       
       {/* Back Redirect Popup */}
       <BackRedirectPopup 
