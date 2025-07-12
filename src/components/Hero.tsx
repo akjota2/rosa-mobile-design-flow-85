@@ -68,33 +68,64 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Video section */}
-        <div className="bg-white rounded-3xl shadow-2xl p-6 border border-gray-100 mb-6">
-          <div className="aspect-video bg-black rounded-2xl mb-4 relative overflow-hidden shadow-xl">
-            <video 
-              className="w-full h-full object-cover rounded-2xl"
-              controls
-              preload="metadata"
-              poster=""
-            >
-              <source src="https://itslovefoot.space/wp-content/uploads/2025/06/VSLFOOT.mp4" type="video/mp4" />
-              Seu navegador não suporta a reprodução de vídeo.
-            </video>
+        {/* Enhanced Video section */}
+        <div className="relative bg-gradient-to-br from-white via-pink-50/30 to-primary-50/20 rounded-3xl shadow-2xl p-8 border border-gradient-to-r from-pink-100 to-primary-100 mb-6 backdrop-blur-sm">
+          {/* Premium badge */}
+          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+            <div className="bg-gradient-to-r from-pink-500 to-primary-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg border-2 border-white">
+              ✨ EXCLUSIVO
+            </div>
           </div>
-          
-          {/* Call to action text */}
-          <div className="flex items-center justify-center space-x-2 text-gray-600 text-sm">
-            <svg className="w-4 h-4 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-            <span>Assista e descubra como começar hoje mesmo</span>
-            <svg className="w-4 h-4 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
+
+          {/* Decorative elements */}
+          <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-pink-300/40 to-primary-300/30 rounded-full blur-sm"></div>
+          <div className="absolute bottom-4 left-4 w-6 h-6 bg-gradient-to-tl from-primary-300/40 to-pink-300/30 rounded-full blur-sm"></div>
+
+          <div className="relative z-10">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">
+              🎥 Como Começar Hoje Mesmo
+            </h3>
+            
+            <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl mb-6 relative overflow-hidden shadow-2xl border-4 border-white">
+              {/* Video overlay with play button */}
+              <div className="absolute inset-0 bg-black/20 flex items-center justify-center z-10">
+                <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <svg className="w-8 h-8 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+              
+              <video 
+                className="w-full h-full object-cover rounded-2xl"
+                controls
+                preload="metadata"
+                poster=""
+              >
+                <source src="https://itslovefoot.space/wp-content/uploads/2025/06/VSLFOOT.mp4" type="video/mp4" />
+                Seu navegador não suporta a reprodução de vídeo.
+              </video>
+            </div>
+            
+            {/* Enhanced call to action */}
+            <div className="bg-gradient-to-r from-pink-500/10 via-primary-500/10 to-pink-500/10 rounded-xl p-4 border border-pink-200/50 backdrop-blur-sm">
+              <div className="flex items-center justify-center space-x-2 text-gray-700 text-sm mb-2">
+                <svg className="w-5 h-5 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span className="font-semibold">Descubra o segredo das +12 mil mulheres</span>
+                <svg className="w-5 h-5 text-pink-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+              <p className="text-xs text-gray-600 text-center">
+                ⚡ <strong>Método exclusivo</strong> • 💰 <strong>Primeiros ganhos em até 24h</strong> • 🔒 <strong>100% Anônimo</strong>
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Price Slider - NEW */}
+        {/* Price Slider */}
         <PriceSlider />
       </div>
     </section>

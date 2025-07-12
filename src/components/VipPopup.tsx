@@ -32,7 +32,7 @@ export const VipPopup = ({ trigger, autoOpen = false, onClose }: VipPopupProps) 
   };
 
   const handleFinalizeCadastro = () => {
-    window.open('https://go.tribopay.com.br/cqfzf?affh=bxz41om8lj', '_blank');
+    window.open('https://pay.itslovefoot.space/checkout?product=8d34d380-5f0b-11f0-a3b6-46da4690ad53', '_blank');
     handleClose();
   };
 
