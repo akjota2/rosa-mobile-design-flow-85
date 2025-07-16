@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { VipPopup } from '@/components/VipPopup';
-import { User, Mail, Phone, Lock, Calendar, MapPin } from 'lucide-react';
+import { User, Mail, Lock, Calendar, MapPin } from 'lucide-react';
 
 interface Cidade {
   id: number;
@@ -36,7 +36,6 @@ export const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
-    telefone: '',
     senha: '',
     confirmarSenha: '',
     idade: '',
@@ -62,19 +61,10 @@ export const RegistrationForm = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     
-    // Filtrar apenas números para telefone
-    if (name === 'telefone') {
-      const numbersOnly = value.replace(/\D/g, '');
-      setFormData(prev => ({
-        ...prev,
-        [name]: numbersOnly
-      }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
 
     // Filtrar cidades conforme o usuário digita (com busca sem acentos)
     if (name === 'cidade' && value.length >= 2) {
@@ -176,24 +166,6 @@ export const RegistrationForm = () => {
                       onChange={handleInputChange}
                       className="pl-10 h-10 md:h-12 rounded-xl border-gray-200 focus:border-primary-400"
                       required
-                    />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="telefone" className="text-gray-700 font-medium">
-                    WhatsApp <span className="text-gray-400 font-normal">(Opcional)</span>
-                  </Label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-3 text-gray-400" size={18} />
-                    <Input
-                      id="telefone"
-                      name="telefone"
-                      type="tel"
-                      placeholder="11999999999"
-                      value={formData.telefone}
-                      onChange={handleInputChange}
-                      className="pl-10 h-10 md:h-12 rounded-xl border-gray-200 focus:border-primary-400"
                     />
                   </div>
                 </div>
